@@ -317,6 +317,31 @@ function render() {
     `;
   }).join("");
 }
+  // Render featured tip (Tip of the Day) if present
+  const featuredEl = document.getElementById('featured');
+  if (day && day.featured && featuredEl) {
+    const f = day.featured;
+    const fm = f.match || {};
+    featuredEl.classList.remove('hidden');
+    featuredEl.setAttribute('aria-hidden', 'false');
+    featuredEl.innerHTML = `
+      <div class="featured-card">
+        <div class="featured-head">
+          <h3>${escapeHtml(f.title || 'Tip of the Day')}</h3>
+          <p class="featured-desc">${escapeHtml(f.description || '')}</p>
+        </div>
+        <div class="featured-body">
+          <div class="match-name">${escapeHtml(fm.match || '')}</div>
+          <div class="match-pick">${escapeHtml(fm.pick || '')} <span class="match-odds">${escapeHtml(String(fm.odds ?? ''))}</span></div>
+          <div class="match-time">${escapeHtml(fm.time || '')}</div>
+        </div>
+      </div>
+    `;
+  } else if (featuredEl) {
+    featuredEl.classList.add('hidden');
+    featuredEl.setAttribute('aria-hidden', 'true');
+    featuredEl.innerHTML = '';
+  }
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, c => ({

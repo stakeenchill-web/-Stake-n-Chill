@@ -146,7 +146,9 @@ input[type=date]{
 }
 .odds-tab.active span{background:rgba(0,0,0,.13)}
 .summary{color:var(--muted);font-size:.8rem;margin:5px 0 15px}
-.tips-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.tips-layout{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
+.tips-list{min-width:0}
+.tips-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
 .tip-card{
   position:relative;overflow:hidden;padding:20px;border-radius:var(--radius);
   background:linear-gradient(145deg,var(--panel2),var(--panel));
@@ -213,6 +215,7 @@ footer{
   nav{display:none}
   .hero{grid-template-columns:1fr;min-height:auto;padding-top:65px}
   .hero-visual{order:-1;max-width:500px;margin:auto}
+  .tips-layout{grid-template-columns:1fr}
   .tips-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .about-panel,.community-panel{grid-template-columns:1fr}
 }

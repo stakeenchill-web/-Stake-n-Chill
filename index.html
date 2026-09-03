@@ -72,13 +72,19 @@
         <button class="odds-tab" data-odds="5"><span>5</span> Odds</button>
       </div>
 
-      <div id="summary" class="summary"></div>
-      <div id="tipsGrid" class="tips-grid"></div>
+      <div class="tips-layout">
+        <div class="tips-list">
+          <div id="summary" class="summary"></div>
+          <div id="tipsGrid" class="tips-grid"></div>
 
-      <div id="emptyState" class="empty hidden">
-        <div class="empty-icon">📅</div>
-        <h3>No tips published for this date</h3>
-        <p>Try another date, or check back when the day's predictions are published.</p>
+          <div id="emptyState" class="empty hidden">
+            <div class="empty-icon">📅</div>
+            <h3>No tips published for this date</h3>
+            <p>Try another date, or check back when the day's predictions are published.</p>
+          </div>
+        </div>
+
+        <aside id="featured" class="featured hidden" aria-hidden="true"></aside>
       </div>
     </section>
 
