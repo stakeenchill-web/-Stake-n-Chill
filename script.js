@@ -17,13 +17,6 @@ function localDateISO(date = new Date()) {
   return `${y}-${m}-${d}`;
 }
 
-function prettyDate(iso) {
-  if (!iso) return "—";
-  return new Date(`${iso}T00:00:00`).toLocaleDateString(undefined, {
-    weekday: "long", year: "numeric", month: "long", day: "numeric"
-  });
-}
-
 function shortDate(iso) {
   if (!iso) return "—";
   return new Date(`${iso}T00:00:00`).toLocaleDateString(undefined, {
@@ -35,7 +28,6 @@ function shortDate(iso) {
 
 function relativeDateLabel(iso) {
   if (!iso) return "";
-
   const today = new Date();
   const todayIso = localDateISO(today);
   const tomorrow = new Date(today);
@@ -48,22 +40,18 @@ function relativeDateLabel(iso) {
   if (iso === todayIso) return "Today";
   if (iso === tomorrowIso) return "Tomorrow";
   if (iso === yesterdayIso) return "Yesterday";
-
   return "";
 }
 
 function dateBadgeText(iso) {
   if (!iso) return "—";
-
   const relative = relativeDateLabel(iso);
   if (relative) return relative;
-
   return shortDate(iso);
 }
 
 function headingForSelectedDate(iso) {
   if (!iso) return "Tips";
-
   const today = new Date();
   const todayIso = localDateISO(today);
   const tomorrow = new Date(today);
@@ -76,7 +64,6 @@ function headingForSelectedDate(iso) {
   if (iso === todayIso) return "Today's Tips";
   if (iso === tomorrowIso) return "Tomorrow's Tips";
   if (iso === yesterdayIso) return "Yesterday's Tips";
-
   return `Tips for ${shortDate(iso)}`;
 }
 
@@ -86,28 +73,21 @@ function safeUrl(value) {
 
 function normalizeResult(value) {
   const text = String(value || "Pending").trim().toLowerCase();
-
   if (["won", "win", "winner", "success"].includes(text)) return "won";
   if (["lost", "loss", "lose", "failed"].includes(text)) return "lost";
   if (["postponed", "ppd", "postponement", "delay"].includes(text)) return "postponed";
   if (["pending", "not started", "upcoming", "in play", "in-play"].includes(text)) return "pending";
-
   return text || "pending";
 }
 
 function resultLabel(value) {
   const status = normalizeResult(value);
-  const labels = {
-    won: "Won",
-    lost: "Lost",
-    postponed: "Postponed",
-    pending: "Pending"
-  };
-
+  const labels = { won: "Won", lost: "Lost", postponed: "Postponed", pending: "Pending" };
   return labels[status] || "Pending";
 }
 
 async function loadSite() {
+  console.log('loadSite start');
   try {
     const [tipsResponse, configResponse] = await Promise.all([
       fetch(`${DATA_FILE}?v=${Date.now()}`),
@@ -119,11 +99,8 @@ async function loadSite() {
     }
 
     const rawTips = await tipsResponse.json();
-    tipsData = Array.isArray(rawTips)
-      ? rawTips
-      : Array.isArray(rawTips.days)
-        ? rawTips.days
-        : [];
+    tipsData = Array.isArray(rawTips) ? rawTips : Array.isArray(rawTips.days) ? rawTips.days : [];
+    console.log('tipsData loaded', Array.isArray(tipsData) ? tipsData.length : typeof tipsData);
 
     config = await configResponse.json();
 
@@ -132,7 +109,7 @@ async function loadSite() {
     initializeDate();
     render();
   } catch (error) {
-    console.error(error);
+    console.error('loadSite error', error);
     tipsData = [];
     applyConfig();
     setupSupportModal();
@@ -145,116 +122,107 @@ function applyConfig() {
   const coffeeBtn = $("#coffeeTop");
   if (coffeeBtn) coffeeBtn.setAttribute("data-target", safeUrl(config.buyMeCoffee || config.telegram || "#"));
 
-  $("#telegramBtn").href = safeUrl(config.telegram);
-  $("#facebookBtn").href = safeUrl(config.facebook);
-  $("#whatsappBtn").href = safeUrl(config.whatsapp);
+  const tg = $("#telegramBtn");
+  const fb = $("#facebookBtn");
+  const wa = $("#whatsappBtn");
+  if (tg) tg.href = safeUrl(config.telegram);
+  if (fb) fb.href = safeUrl(config.facebook);
+  if (wa) wa.href = safeUrl(config.whatsapp);
+
   document.title = config.siteTitle || "Stake ń Chill | Free Sports Predictions";
-  $("#year").textContent = new Date().getFullYear();
+  const yearEl = $("#year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 }
 
 function setupSupportModal() {
   const modal = $("#supportModal");
   const closeBtn = $("#closeSupport");
   const coffeeBtn = $("#coffeeTop");
-
   if (!modal || !coffeeBtn) return;
 
   const openModal = () => {
     modal.classList.remove("hidden");
     modal.setAttribute("aria-hidden", "false");
   };
-
   const closeModal = () => {
     modal.classList.add("hidden");
     modal.setAttribute("aria-hidden", "true");
   };
 
   coffeeBtn.addEventListener("click", (event) => {
+    const buyUrl = config.buyMeCoffee && config.buyMeCoffee !== "#" ? config.buyMeCoffee : null;
+    if (buyUrl) {
+      window.open(buyUrl, '_blank', 'noopener');
+      return;
+    }
     event.preventDefault();
     openModal();
   });
 
   closeBtn?.addEventListener("click", closeModal);
-  modal.addEventListener("click", (event) => {
-    if (event.target === modal) closeModal();
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !modal.classList.contains("hidden")) {
-      closeModal();
-    }
-  });
+  modal.addEventListener("click", (event) => { if (event.target === modal) closeModal(); });
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !modal.classList.contains("hidden")) closeModal(); });
 }
 
 function initializeDate() {
   const today = localDateISO();
   const picker = $("#datePicker");
 
-  picker.value = today;
-  selectedDate = today;
-
-  picker.addEventListener("change", () => {
-    selectedDate = picker.value || today;
-    render();
-    $("#tips").scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-
-  $("#todayBtn").addEventListener("click", () => {
+  if (!picker) {
+    console.warn('datePicker element not found in DOM; using today');
     selectedDate = today;
+  } else {
     picker.value = today;
-    render();
-  });
-
-  $$(".odds-tab").forEach(btn => {
-    btn.addEventListener("click", () => {
-      selectedOdds = btn.dataset.odds;
-      $$(".odds-tab").forEach(x => x.classList.toggle("active", x === btn));
+    selectedDate = today;
+    picker.addEventListener("change", () => {
+      selectedDate = picker.value || today;
       render();
+      try { $("#tips")?.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) { }
     });
-  });
+  }
 
-  $$(".filter").forEach(btn => {
-    btn.addEventListener("click", () => {
-      selectedSport = btn.dataset.sport;
-      $$(".filter").forEach(x => x.classList.toggle("active", x === btn));
-      render();
-    });
-  });
+  $("#todayBtn")?.addEventListener("click", () => { selectedDate = today; if (picker) picker.value = today; render(); });
+
+  $$(".odds-tab").forEach(btn => { btn.addEventListener("click", () => { selectedOdds = btn.dataset.odds; $$(".odds-tab").forEach(x => x.classList.toggle("active", x === btn)); render(); }); });
+
+  $$(".filter").forEach(btn => { btn.addEventListener("click", () => { selectedSport = btn.dataset.sport; $$(".filter").forEach(x => x.classList.toggle("active", x === btn)); render(); }); });
 }
 
 function renderEmptyState(message, detail = "Check back soon for the latest picks.") {
   const grid = $("#tipsGrid");
   const empty = $("#emptyState");
+  if (!empty || !grid) return;
   const emptyTitle = empty.querySelector("h3");
   const emptyText = empty.querySelector("p");
-
   grid.innerHTML = "";
-  emptyTitle.textContent = message;
-  emptyText.textContent = detail;
+  if (emptyTitle) emptyTitle.textContent = message;
+  if (emptyText) emptyText.textContent = detail;
   empty.classList.remove("hidden");
 }
 
 function render() {
-  $("#selectedDateText").textContent = dateBadgeText(selectedDate);
-  $("#tipsTitle").textContent = headingForSelectedDate(selectedDate);
+  console.log('render start', { selectedDate });
+  const selDateText = $("#selectedDateText");
+  const tipsTitle = $("#tipsTitle");
+  if (selDateText) selDateText.textContent = dateBadgeText(selectedDate);
+  if (tipsTitle) tipsTitle.textContent = headingForSelectedDate(selectedDate);
 
   const relativeLabel = relativeDateLabel(selectedDate);
-  $("#todayBtn").textContent = relativeLabel || "";
-  $("#todayBtn").style.visibility = relativeLabel ? "visible" : "hidden";
+  const todayBtn = $("#todayBtn");
+  if (todayBtn) { todayBtn.textContent = relativeLabel || ""; todayBtn.style.visibility = relativeLabel ? "visible" : "hidden"; }
 
-  const day = tipsData.find(item => item.date === selectedDate);
+  const day = Array.isArray(tipsData) ? tipsData.find(item => item.date === selectedDate) : undefined;
   let picks = day?.odds?.[selectedOdds] || [];
+  if (selectedSport !== "all") picks = picks.filter(p => String(p.sport).toLowerCase() === selectedSport.toLowerCase());
 
-  if (selectedSport !== "all") {
-    picks = picks.filter(p => String(p.sport).toLowerCase() === selectedSport.toLowerCase());
-  }
+  console.log('render: day found?', !!day, 'picks length', picks.length);
 
-  $("#summary").textContent = day
-    ? `${picks.length} pick${picks.length === 1 ? "" : "s"} shown • ${selectedOdds}-odds section`
-    : "";
+  const summary = $("#summary");
+  if (summary) summary.textContent = day ? `${picks.length} pick${picks.length === 1 ? "" : "s"} shown • ${selectedOdds}-odds section` : "";
 
   const grid = $("#tipsGrid");
   const empty = $("#emptyState");
+  if (!grid || !empty) return;
 
   if (!day || !picks.length) {
     if (selectedDate === localDateISO()) {
@@ -262,28 +230,18 @@ function render() {
     } else {
       renderEmptyState("No predictions available for this day.", "Try another date or check back later for new picks.");
     }
+    // clear featured
+    const featuredEl = $("#featured");
+    if (featuredEl) { featuredEl.classList.add('hidden'); featuredEl.setAttribute('aria-hidden','true'); featuredEl.innerHTML = ''; }
     return;
   }
 
   empty.classList.add("hidden");
   grid.innerHTML = picks.map(p => {
-    const matches = Array.isArray(p.matches) && p.matches.length
-      ? p.matches
-      : [{
-          match: p.match || "Match",
-          pick: p.pick || "—",
-          odds: p.odds ?? "—",
-          time: p.time || "",
-          status: p.status || p.result || "Pending"
-        }];
-
+    const matches = Array.isArray(p.matches) && p.matches.length ? p.matches : [{ match: p.match || "Match", pick: p.pick || "—", odds: p.odds ?? "—", time: p.time || "", status: p.status || p.result || "Pending" }];
     const status = resultLabel(p.result || p.status || matches[0].status || "Pending");
     const statusClass = normalizeResult(p.result || p.status || matches[0].status || "Pending");
-    const combinedOdds = p.combinedOdds ?? matches.reduce((total, match) => {
-      const oddsValue = Number(match.odds);
-      return total * (Number.isFinite(oddsValue) && oddsValue > 0 ? oddsValue : 1);
-    }, 1);
-
+    const combinedOdds = p.combinedOdds ?? matches.reduce((total, match) => { const oddsValue = Number(match.odds); return total * (Number.isFinite(oddsValue) && oddsValue > 0 ? oddsValue : 1); }, 1);
     return `
       <article class="tip-card slip-card">
         <div class="tip-top">
@@ -316,9 +274,9 @@ function render() {
       </article>
     `;
   }).join("");
-}
-  // Render featured tip (Tip of the Day) if present
-  const featuredEl = document.getElementById('featured');
+
+  // featured panel
+  const featuredEl = $("#featured");
   if (day && day.featured && featuredEl) {
     const f = day.featured;
     const fm = f.match || {};
@@ -342,11 +300,8 @@ function render() {
     featuredEl.setAttribute('aria-hidden', 'true');
     featuredEl.innerHTML = '';
   }
-
-function escapeHtml(value) {
-  return String(value).replace(/[&<>"']/g, c => ({
-    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
-  }[c]));
 }
+
+function escapeHtml(value) { return String(value).replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;" }[c])); }
 
 loadSite();

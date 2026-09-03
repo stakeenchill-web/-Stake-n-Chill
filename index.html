@@ -167,6 +167,13 @@
     </div>
   </div>
 
+  <script>
+    // ensure today button text immediately shows if JS loads after HTML
+    document.addEventListener('DOMContentLoaded', () => {
+      const todayBtn = document.getElementById('todayBtn');
+      if (todayBtn) todayBtn.textContent = 'Today';
+    });
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
