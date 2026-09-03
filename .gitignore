@@ -1,0 +1,22 @@
+# Python virtual environments
+.venv/
+venv/
+ENV/
+
+# Build / distribution folders
+dist/
+build/
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+
+# Environment files (should contain secrets)
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if any)
+node_modules/
