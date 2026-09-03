@@ -150,11 +150,7 @@ function setupSupportModal() {
   };
 
   coffeeBtn.addEventListener("click", (event) => {
-    const buyUrl = config.buyMeCoffee && config.buyMeCoffee !== "#" ? config.buyMeCoffee : null;
-    if (buyUrl) {
-      window.open(buyUrl, '_blank', 'noopener');
-      return;
-    }
+    // Always show local M-Pesa instructions modal (don't auto-open external links)
     event.preventDefault();
     openModal();
   });
@@ -285,13 +281,23 @@ function render() {
     featuredEl.innerHTML = `
       <div class="featured-card">
         <div class="featured-head">
-          <h3>${escapeHtml(f.title || 'Tip of the Day')}</h3>
-          <p class="featured-desc">${escapeHtml(f.description || '')}</p>
+          <div class="featured-badge">Tip of the Day</div>
+          <div class="featured-meta">
+            <h3>${escapeHtml(f.title || 'Tip of the Day')}</h3>
+            <div class="featured-sub">${escapeHtml(f.description || '')}</div>
+          </div>
         </div>
-        <div class="featured-body">
-          <div class="match-name">${escapeHtml(fm.match || '')}</div>
-          <div class="match-pick">${escapeHtml(fm.pick || '')} <span class="match-odds">${escapeHtml(String(fm.odds ?? ''))}</span></div>
-          <div class="match-time">${escapeHtml(fm.time || '')}</div>
+
+        <div class="featured-body-row">
+          <div class="featured-left">
+            <div class="match-name">${escapeHtml(fm.match || '')}</div>
+            <div class="featured-league">${escapeHtml(fm.league || '')}</div>
+            <div class="featured-time">${escapeHtml(fm.time || '')}</div>
+          </div>
+          <div class="featured-right">
+            <div class="featured-pick">${escapeHtml(fm.pick || '')}</div>
+            <div class="featured-odds">${escapeHtml(String(fm.odds ?? ''))}</div>
+          </div>
         </div>
       </div>
     `;

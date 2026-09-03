@@ -52,15 +52,16 @@ nav a:hover{color:var(--accent)}
   position:relative;width:min(760px,100%);background:#f5f5f4;border-radius:22px;border:1px solid rgba(0,0,0,.08);box-shadow:0 28px 70px rgba(0,0,0,.28);overflow:hidden;
 }
 .support-cta{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px 18px;background:linear-gradient(90deg,#f9a21a,#f77d1d);
-  color:#fff;min-height:86px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px 18px;
+  background:linear-gradient(90deg,var(--accent2),var(--accent));
+  color:#071000;min-height:86px;
 }
 .support-cta-icon{
-  display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.18);
-  font-weight:900;font-size:1.4rem;
+  display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.92);
+  font-weight:900;font-size:1.4rem;color:var(--accent);
 }
 .support-cta h3{margin:0;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-.04em}
-.support-cta p{margin:6px 0 0;color:rgba(255,255,255,.92);font-weight:600}
+.support-cta p{margin:6px 0 0;color:rgba(7,16,0,.9);font-weight:700}
 .support-close{
   position:absolute;right:18px;top:18px;border:none;background:rgba(255,255,255,.2);color:#fff;border-radius:10px;width:42px;height:42px;cursor:pointer;font-size:1.6rem;line-height:1;
 }
@@ -231,4 +232,67 @@ footer{
   .social-grid{grid-template-columns:1fr}
   .about-panel,.community-panel,.contact-card{padding:25px}
   footer{flex-direction:column}
+}
+
+/* Featured Tip of the Day styles: pinned card that dangles */
+#featured{display:block;padding-top:22px}
+.featured-card{
+  position:relative;
+  background:linear-gradient(180deg,#0f170a,#07100b);
+  border-radius:16px;
+  padding:18px 16px 16px 16px;
+  box-shadow: 0 30px 50px rgba(2,6,4,0.55), 0 6px 18px rgba(0,0,0,0.4);
+  border:1px solid rgba(255,255,255,0.04);
+  transform-origin: top center;
+  animation: swing 3.8s ease-in-out infinite;
+  will-change: transform;
+}
+.featured-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
+.featured-badge{background:linear-gradient(90deg,#ffcf62,#ffd98a);color:#2b1800;padding:6px 10px;border-radius:999px;font-weight:900;font-size:.72rem}
+.featured-meta h3{margin:0;font-size:1.02rem}
+.featured-sub{margin-top:6px;color:var(--muted);font-size:.92rem}
+.featured-body-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:8px}
+.featured-left{flex:1;min-width:0}
+.featured-right{text-align:right;min-width:120px;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:6px}
+.featured-league{color:var(--muted);font-size:.82rem}
+.featured-time{color:var(--muted);font-size:.8rem;margin-top:6px}
+.featured-pick{font-weight:900;font-size:1.05rem}
+.featured-odds{font-weight:900;color:var(--accent);font-size:1.1rem}
+
+/* pin and string */
+.featured-card::before{
+  content:"";
+  position:absolute;
+  left:18px;
+  top:-14px;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, #fff,#f7f7f7 30%, #e1e1e1 60%);
+  box-shadow:0 4px 8px rgba(0,0,0,0.45);
+  border:2px solid rgba(0,0,0,0.25);
+}
+.featured-card::after{
+  content:"";
+  position:absolute;
+  left:25px;
+  top:-2px;
+  width:2px;
+  height:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.1));
+  border-radius:2px;
+}
+
+@keyframes swing{
+  0% { transform: rotate(-5deg) translateY(0); }
+  25% { transform: rotate(6deg) translateY(3px); }
+  50% { transform: rotate(-4deg) translateY(0); }
+  75% { transform: rotate(5deg) translateY(2px); }
+  100% { transform: rotate(-5deg) translateY(0); }
+}
+
+@media(max-width:620px){
+  .featured-card{animation-duration:2.8s;transform-origin:top left}
+  .featured-card::before{left:12px;top:-12px}
+  .featured-card::after{left:18px}
 }
