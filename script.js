@@ -158,6 +158,25 @@ function setupSupportModal() {
   closeBtn?.addEventListener("click", closeModal);
   modal.addEventListener("click", (event) => { if (event.target === modal) closeModal(); });
   document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !modal.classList.contains("hidden")) closeModal(); });
+
+  // Copy-to-clipboard for support number
+  const copyBtn = $("#copyPayTo");
+  const payEl = modal.querySelector('.support-payto strong');
+  if (copyBtn && payEl) {
+    copyBtn.addEventListener('click', () => {
+      const num = payEl.textContent.trim();
+      if (!num) return;
+      const setCopied = () => { copyBtn.classList.add('copied'); const prev = copyBtn.textContent; copyBtn.textContent = 'Copied!'; setTimeout(() => { copyBtn.classList.remove('copied'); copyBtn.textContent = prev; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(num).then(setCopied).catch(() => {
+          // fallback
+          const ta = document.createElement('textarea'); ta.value = num; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); setCopied(); } catch (e) { alert('Copy failed, please select the number: ' + num); } ta.remove();
+        });
+      } else {
+        const ta = document.createElement('textarea'); ta.value = num; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); setCopied(); } catch (e) { alert('Copy failed, please select the number: ' + num); } ta.remove();
+      }
+    });
+  }
 }
 
 function initializeDate() {
