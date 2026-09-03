@@ -228,7 +228,14 @@ footer{
   .about-panel,.community-panel{grid-template-columns:1fr}
 }
 @media(max-width:620px){
-  .topbar{padding:9px 4%}.nav-cta{display:none}
+  .topbar{padding:9px 4%}
+  .nav-cta{
+    display:inline-flex;
+    padding:8px 10px;
+    font-size:.82rem;
+    margin-left:auto;
+    gap:8px;
+  }
   .hero,.section{padding-left:5%;padding-right:5%}
   .hero{padding-top:45px}
   .hero h1{font-size:3.5rem}
