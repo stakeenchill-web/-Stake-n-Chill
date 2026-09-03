@@ -34,7 +34,7 @@
             "sport": "Football",
             "league": "Various",
             "result": "Pending",
-            "combinedOdds": 2.23,
+            "combinedOdds": 3.30,
             "matches": [
               {
                 "match": "Al-Fayha FC vs Al-Kholood",
@@ -55,6 +55,14 @@
                 "pick": "Home",
                 "odds": 1.39,
                 "time": "20:00",
+                "status": "Pending"
+              }
+              ,
+              {
+                "match": "FC RFS vs Riga FC",
+                "pick": "Yes",
+                "odds": 1.48,
+                "time": "19:00",
                 "status": "Pending"
               }
             ]
