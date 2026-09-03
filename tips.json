@@ -3,6 +3,17 @@
   "days": [
     {
       "date": "2026-09-03",
+      "featured": {
+        "title": "Tip of the Day",
+        "description": "Top pick selected for today based on favorable probabilities and value: a leaning towards more than 2 goals in the Palermo vs Mantova match. This is a higher-confidence selection within the free tips — stake responsibly.",
+        "match": {
+          "match": "Palermo FC vs Mantova 1911",
+          "pick": "Over 2.5",
+          "odds": 1.76,
+          "time": "19:00",
+          "status": "Pending"
+        }
+      },
       "odds": {
         "2": [
           {
