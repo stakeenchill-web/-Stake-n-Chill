@@ -33,11 +33,16 @@ def norm(x):
 
 def sim(a,b):
     a,b=norm(a),norm(b)
+    aliases={'rfs':'rigas fs'}
+    a=aliases.get(a,a); b=aliases.get(b,b)
     if a==b or a.replace(' ','')==b.replace(' ',''): return 1.0
+    at,bt=set(a.split()),set(b.split())
+    if at & bt: return 0.9
+    if ''.join(word[0] for word in b.split()) == a or ''.join(word[0] for word in a.split()) == b: return 0.9
     return SequenceMatcher(None,a,b).ratio()
 
 def split_match(text):
-    p=re.split(r'\s+(?:vs?\.?|v)\s+|\s+[–—-]\s+',str(text),1,flags=re.I)
+    p=re.split(r'\s+(?:vs?\.?|v)\s+|\s+[–—-]\s+',str(text),maxsplit=1,flags=re.I)
     return (p[0].strip(),p[1].strip()) if len(p)==2 else (None,None)
 
 def api(base,path,params):
@@ -100,8 +105,10 @@ def evaluate(pick,h,a,sport):
         line=float(m.group(2)); return total>line if m.group(1)=='over' else total<line
     if sport.lower()=='football' and ('btts' in p or 'both teams to score' in p):
         yes=h>0 and a>0; return not yes if 'no' in p else yes
-    if p in {'home','home win','1','home team','moneyline home','ml home'} or 'home win' in p or 'moneyline home' in p:return h>a
-    if p in {'away','away win','2','away team','moneyline away','ml away'} or 'away win' in p or 'moneyline away' in p:return a>h
+    if p in {'home','home win','1','home team','moneyline home','ml home','full time - 1','full time 1'} or 'home win' in p or 'moneyline home' in p:return h>a
+    if p in {'away','away win','2','away team','moneyline away','ml away','full time - 2','full time 2'} or 'away win' in p or 'moneyline away' in p:return a>h
+    if sport.lower()=='football' and p in {'yes','no'}:
+        return (h>0 and a>0) if p=='yes' else not (h>0 and a>0)
     if sport.lower()=='football':
         if p in {'draw','x'}:return h==a
         if p in {'1x','home or draw'}:return h>=a
@@ -136,7 +143,9 @@ def main():
             for acc in accs or []:
                 sport=acc.get('sport','Football'); games=cache.get((date,sport),[])
                 for m in acc.get('matches',[]):
-                    if m.get('status') in {'Won','Lost','Cancelled'}: continue
+                    if m.get('status') in {'Won','Lost','Cancelled'}:
+                        m.pop('resultStatus',None)
+                        continue
                     g,confidence=find_game(m,games,sport)
                     if not g:
                         m['matchLookup']='Not matched'; continue
@@ -155,6 +164,7 @@ def main():
                     if out is True:new='Won'
                     elif out is False:new='Lost'
                     else:new='Pending'; m['resultStatus']='Unsupported Market'
+                    if out is not None: m.pop('resultStatus',None)
                     if m.get('status')!=new:changed=True
                     m['status']=new
                 update_acc(acc)

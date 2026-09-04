@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03",
+  "updatedAt": "2026-09-04 06:37:22",
   "days": [
     {
       "date": "2026-09-03",
@@ -19,7 +19,7 @@
           {
             "sport": "Football",
             "league": "Premier League",
-            "result": "Pending",
+            "result": "Won",
             "combinedOdds": 2.17,
             "matches": [
               {
@@ -27,106 +27,171 @@
                 "pick": "Over 2.5",
                 "odds": 1.76,
                 "time": "19:00",
-                "status": "Pending"
+                "status": "Won",
+                "apiId": 1629057,
+                "matchLookup": "Matched (87%)",
+                "homeScore": 5,
+                "awayScore": 2,
+                "apiStatus": "FT"
               },
               {
                 "match": "RKS Rakow Czestochowa vs Gornik Zabrze",
                 "pick": "Over 1.5",
                 "odds": 1.23,
                 "time": "19:00",
-                "status": "Pending"
+                "status": "Won",
+                "apiId": 1553144,
+                "matchLookup": "Matched (95%)",
+                "homeScore": 1,
+                "awayScore": 2,
+                "apiStatus": "FT"
               }
-            ]
+            ],
+            "legsWon": 2,
+            "legsLost": 0,
+            "legsPending": 0,
+            "legsTotal": 2
           }
-        
         ],
         "3": [
           {
             "sport": "Football",
             "league": "Various",
-            "result": "Pending",
-            "combinedOdds": 3.30,
+            "result": "Lost",
+            "combinedOdds": 3.3,
             "matches": [
               {
                 "match": "Al-Fayha FC vs Al-Kholood",
                 "pick": "Over 1.5",
                 "odds": 1.36,
                 "time": "18:55",
-                "status": "Pending"
+                "status": "Won",
+                "apiId": 1603008,
+                "matchLookup": "Matched (100%)",
+                "homeScore": 2,
+                "awayScore": 2,
+                "apiStatus": "FT"
               },
               {
                 "match": "RSC Anderlecht vs KV Kortrijk",
                 "pick": "Over 1.5",
                 "odds": 1.18,
                 "time": "21:30",
-                "status": "Pending"
+                "status": "Lost",
+                "matchLookup": "Matched (90%)",
+                "apiId": 1558604,
+                "homeScore": 1,
+                "awayScore": 0,
+                "apiStatus": "FT"
               },
               {
                 "match": "Al Ahly SC vs Smouha SC",
                 "pick": "Home",
                 "odds": 1.39,
                 "time": "20:00",
-                "status": "Pending"
-              }
-              ,
+                "status": "Won",
+                "apiId": 1612224,
+                "matchLookup": "Matched (100%)",
+                "homeScore": 1,
+                "awayScore": 0,
+                "apiStatus": "FT"
+              },
               {
                 "match": "FC RFS vs Riga FC",
                 "pick": "Yes",
                 "odds": 1.48,
                 "time": "19:00",
-                "status": "Pending"
+                "status": "Won",
+                "matchLookup": "Matched (100%)",
+                "apiId": 1630774,
+                "homeScore": 2,
+                "awayScore": 3,
+                "apiStatus": "FT"
               }
-            ]
+            ],
+            "legsWon": 3,
+            "legsLost": 1,
+            "legsPending": 0,
+            "legsTotal": 4
           }
         ],
         "5": [
           {
             "sport": "Football",
             "league": "Various",
-            "result": "Pending",
+            "result": "Lost",
             "combinedOdds": 5.46,
             "matches": [
               {
                 "match": "FC Alashkert Yerevan - FC Van Charentsavan",
                 "pick": "Full Time - 1",
-                "odds": 1.20,
+                "odds": 1.2,
                 "time": "19:00",
-                "status": "Pending",
-                "league": "Premier League"
+                "status": "Won",
+                "league": "Premier League",
+                "matchLookup": "Matched (90%)",
+                "apiId": 1581515,
+                "homeScore": 4,
+                "awayScore": 0,
+                "apiStatus": "FT"
               },
               {
                 "match": "WKW ETO FC Gyor - Ferencvarosi Budapest",
                 "pick": "Both Teams To Score - Yes",
                 "odds": 1.56,
                 "time": "20:30",
-                "status": "Pending",
-                "league": "NB I"
+                "status": "Lost",
+                "league": "NB I",
+                "matchLookup": "Matched (90%)",
+                "apiId": 1560214,
+                "homeScore": 0,
+                "awayScore": 3,
+                "apiStatus": "FT"
               },
               {
                 "match": "KAA Gent - Oud-Heverlee Leuven",
                 "pick": "Full Time - 1",
                 "odds": 1.41,
                 "time": "21:30",
-                "status": "Pending",
-                "league": "Pro League"
+                "status": "Won",
+                "league": "Pro League",
+                "matchLookup": "Matched (90%)",
+                "apiId": 1558603,
+                "homeScore": 1,
+                "awayScore": 0,
+                "apiStatus": "FT"
               },
               {
                 "match": "Toulouse FC - Lille OSC",
                 "pick": "Full Time - 2",
                 "odds": 1.51,
                 "time": "21:45",
-                "status": "Pending",
-                "league": "Ligue 1"
+                "status": "Won",
+                "league": "Ligue 1",
+                "apiId": 1552754,
+                "matchLookup": "Matched (100%)",
+                "homeScore": 0,
+                "awayScore": 1,
+                "apiStatus": "FT"
               },
               {
                 "match": "Js El Biar - Olympique Akbou",
                 "pick": "Full Time - Over 0.5",
                 "odds": 1.37,
                 "time": "23:00",
-                "status": "Pending",
-                "league": "Ligue 1"
+                "status": "Won",
+                "league": "Ligue 1",
+                "apiId": 1611381,
+                "matchLookup": "Matched (100%)",
+                "homeScore": 0,
+                "awayScore": 2,
+                "apiStatus": "FT"
               }
-            ]
+            ],
+            "legsWon": 4,
+            "legsLost": 1,
+            "legsPending": 0,
+            "legsTotal": 5
           }
         ]
       }
