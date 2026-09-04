@@ -1,0 +1,2 @@
+# Stake ń Chill Admin Publisher
+Deploy `worker.js` as a Cloudflare Worker. Add secrets `ADMIN_PASSWORD` and `GITHUB_TOKEN`. Add variables `GITHUB_OWNER=stakeenchill-web`, `GITHUB_REPO=-Stake-n-Chill`, `GITHUB_BRANCH=main`, and `ALLOWED_ORIGIN=https://stake-n-chill.onrender.com`. The GitHub token needs repository Contents read/write permission. Then put the Worker `/publish` URL into `admin/admin.js` as `API_URL`.
