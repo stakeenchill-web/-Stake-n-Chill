@@ -187,6 +187,7 @@ input[type=date]{
 .match-side{text-align:right}
 .match-pick{font-weight:800;font-size:.94rem}
 .match-odds{font-size:.82rem;color:var(--accent);font-weight:800}
+.match-status{margin-top:6px}
 .result-badge{display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;border-radius:999px;font-size:.7rem;font-weight:900;border:1px solid var(--line);text-transform:uppercase;letter-spacing:.05em}
 .result-won{background:rgba(140,255,0,.12);color:#b7ff5d;border-color:rgba(140,255,0,.3)}
 .result-lost{background:rgba(255,110,110,.12);color:#ff8a8a;border-color:rgba(255,110,110,.2)}

@@ -282,6 +282,7 @@ function render() {
               <div class="match-side">
                 <div class="match-pick">${escapeHtml(match.pick || "—")}</div>
                 <div class="match-odds">${escapeHtml(String(match.odds ?? "—"))}</div>
+                <span class="result-badge match-status result-${normalizeResult(match.status || match.result || "Pending")}">${escapeHtml(resultLabel(match.status || match.result || "Pending"))}</span>
               </div>
             </div>
           `).join("")}
@@ -295,6 +296,11 @@ function render() {
   if (day && day.featured && featuredEl) {
     const f = day.featured;
     const fm = f.match || {};
+    const featuredSource = Object.values(day.odds || {})
+      .flatMap(odds => odds || [])
+      .flatMap(pick => pick.matches || [])
+      .find(match => match.match && match.match === fm.match);
+    const featuredStatus = featuredSource?.status || featuredSource?.result || fm.status || fm.result || "Pending";
     featuredEl.classList.remove('hidden');
     featuredEl.setAttribute('aria-hidden', 'false');
     featuredEl.innerHTML = `
@@ -316,6 +322,7 @@ function render() {
           <div class="featured-right">
             <div class="featured-pick">${escapeHtml(fm.pick || '')}</div>
             <div class="featured-odds">${escapeHtml(String(fm.odds ?? ''))}</div>
+            <span class="result-badge result-${normalizeResult(featuredStatus)}">${escapeHtml(resultLabel(featuredStatus))}</span>
           </div>
         </div>
       </div>
