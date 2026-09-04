@@ -508,18 +508,17 @@ async function load() {
 // LOGIN
 // ============================================================
 
-function login() {
+async function login() {
 
   const password = $("password");
+  const loginButton = $("loginBtn");
+  const loginErr = $("loginErr");
 
   if (!password) return;
 
   pw = password.value.trim();
 
   if (!pw) {
-
-    const loginErr = $("loginErr");
-
     if (loginErr) {
       loginErr.textContent =
         "Enter your password.";
@@ -528,14 +527,58 @@ function login() {
     return;
   }
 
-  const loginErr = $("loginErr");
-
   if (loginErr) {
     loginErr.textContent = "";
   }
 
-  $("login").classList.add("hidden");
-  $("app").classList.remove("hidden");
+  if (loginButton) {
+    loginButton.disabled = true;
+    loginButton.textContent = "Checking…";
+  }
+
+  try {
+    const response = await fetch(
+      API_URL.replace(/\/publish$/, "/auth"),
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ password: pw })
+      }
+    );
+
+    if (!response.ok) {
+      pw = "";
+
+      if (loginErr) {
+        loginErr.textContent =
+          response.status === 401 ? "Wrong password." : "Login failed. Try again.";
+      }
+
+      return;
+    }
+
+    $("login").classList.add("hidden");
+    $("app").classList.remove("hidden");
+
+  } catch (error) {
+    console.error("Could not verify admin password:", error);
+    pw = "";
+
+    if (loginErr) {
+      loginErr.textContent =
+        "Could not verify password. Check the Worker connection.";
+    }
+
+    return;
+
+  } finally {
+    if (loginButton) {
+      loginButton.disabled = false;
+      loginButton.textContent = "Continue";
+    }
+  }
 
   date = $("date").value = today();
 
