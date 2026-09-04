@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04 06:37:22",
+  "updatedAt": "2026-09-04 08:13:00",
   "days": [
     {
       "date": "2026-09-03",
@@ -194,6 +194,54 @@
             "legsTotal": 5
           }
         ]
+      }
+    },
+    {
+      "date": "2026-09-04",
+      "featured": {
+        "title": "Tip of the Day",
+        "description": "Today's featured selection is Arminia Bielefeld vs FC St. Pauli: Over 2.5 goals.",
+        "match": {
+          "match": "Arminia Bielefeld vs FC St. Pauli",
+          "pick": "Over 2.5",
+          "odds": 1.61,
+          "time": "19:30",
+          "status": "Pending"
+        }
+      },
+      "odds": {
+        "2": [
+          {
+            "sport": "Football",
+            "league": "Football",
+            "result": "Pending",
+            "combinedOdds": 2.04,
+            "matches": [
+              {
+                "match": "USL Dunkerque vs Clermont Foot",
+                "pick": "Over 1.5",
+                "odds": 1.27,
+                "time": "21:00",
+                "status": "Pending",
+                "gameId": 15810
+              },
+              {
+                "match": "Arminia Bielefeld vs FC St. Pauli",
+                "pick": "Over 2.5",
+                "odds": 1.61,
+                "time": "19:30",
+                "status": "Pending",
+                "gameId": 34557
+              }
+            ],
+            "legsWon": 0,
+            "legsLost": 0,
+            "legsPending": 2,
+            "legsTotal": 2
+          }
+        ],
+        "3": [],
+        "5": []
       }
     }
   ]
