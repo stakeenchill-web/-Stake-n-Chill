@@ -48,6 +48,12 @@ body {
   overflow-x: hidden;
 }
 
+button,
+input,
+select {
+  max-width: 100%;
+}
+
 /* =========================
    MAIN CONTAINER
 ========================= */
@@ -114,6 +120,7 @@ header a {
 
 .card {
   width: 100%;
+  min-width: 0;
 
   background: #11190df2;
   border: 1px solid var(--border);
@@ -289,13 +296,29 @@ button:disabled {
   display: grid;
 
   grid-template-columns:
-    1fr
-    1fr
+    minmax(0, 1.15fr)
+    minmax(0, 1.15fr)
+    minmax(120px, 0.8fr)
     auto;
 
   gap: 8px;
 
   align-items: end;
+}
+
+.matches,
+#list,
+#preview {
+  min-width: 0;
+}
+
+.empty {
+  color: var(--muted);
+  padding: 10px 0;
+}
+
+.empty p {
+  margin: 6px 0;
 }
 
 .acchead button {
