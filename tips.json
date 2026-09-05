@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04 16:58:13",
+  "updatedAt": "2026-09-05 05:49:52",
   "days": [
     {
       "date": "2026-09-03",
@@ -214,7 +214,7 @@
           {
             "sport": "Football",
             "league": "Football",
-            "result": "Pending",
+            "result": "Won",
             "combinedOdds": 2.04,
             "matches": [
               {
@@ -222,21 +222,31 @@
                 "pick": "Over 1.5",
                 "odds": 1.27,
                 "time": "21:00",
-                "status": "Pending",
-                "gameId": 15810
+                "status": "Won",
+                "gameId": 15810,
+                "apiId": 1552460,
+                "matchLookup": "Matched (95%)",
+                "homeScore": 1,
+                "awayScore": 1,
+                "apiStatus": "FT"
               },
               {
                 "match": "Arminia Bielefeld vs FC St. Pauli",
                 "pick": "Over 2.5",
                 "odds": 1.61,
                 "time": "19:30",
-                "status": "Pending",
-                "gameId": 34557
+                "status": "Won",
+                "gameId": 34557,
+                "apiId": 1576161,
+                "matchLookup": "Matched (100%)",
+                "homeScore": 2,
+                "awayScore": 2,
+                "apiStatus": "FT"
               }
             ],
-            "legsWon": 0,
+            "legsWon": 2,
             "legsLost": 0,
-            "legsPending": 2,
+            "legsPending": 0,
             "legsTotal": 2
           }
         ],
@@ -244,7 +254,7 @@
           {
             "sport": "Football",
             "league": "Armenia premier League",
-            "result": "Pending",
+            "result": "Lost",
             "combinedOdds": 3.19,
             "matches": [
               {
@@ -252,37 +262,57 @@
                 "pick": "Over 2.5",
                 "odds": "1.37",
                 "time": "19:00",
-                "status": "Pending"
+                "status": "Pending",
+                "matchLookup": "Not matched"
               },
               {
                 "match": "Lyon vs Auxerre",
                 "pick": "Over 1.5",
                 "odds": "1.19",
                 "time": "20:00",
-                "status": "Pending"
+                "status": "Won",
+                "apiId": 1552750,
+                "matchLookup": "Matched (100%)",
+                "homeScore": 3,
+                "awayScore": 1,
+                "apiStatus": "FT"
               },
               {
                 "match": "Ipswich Town Vs Liverpool",
                 "pick": "Over 2.5",
                 "odds": "1.43",
                 "time": "22:00",
-                "status": "Pending"
+                "status": "Lost",
+                "apiId": 1557393,
+                "matchLookup": "Matched (95%)",
+                "homeScore": 0,
+                "awayScore": 2,
+                "apiStatus": "FT"
               },
               {
                 "match": "PSG vs Monaco",
                 "pick": "Over 2.5",
                 "odds": "1.37",
                 "time": "22:05",
-                "status": "Pending"
+                "status": "Won",
+                "apiId": 1552753,
+                "matchLookup": "Matched (95%)",
+                "homeScore": 1,
+                "awayScore": 2,
+                "apiStatus": "FT"
               }
-            ]
+            ],
+            "legsWon": 2,
+            "legsLost": 1,
+            "legsPending": 1,
+            "legsTotal": 4
           }
         ],
         "5": [
           {
             "sport": "Football",
             "league": "Various",
-            "result": "Pending",
+            "result": "Lost",
             "combinedOdds": 5.59,
             "matches": [
               {
@@ -290,45 +320,70 @@
                 "pick": "Over 1.5",
                 "odds": 1.5,
                 "time": "20:00",
-                "status": "Pending",
-                "league": "Super Lig"
+                "status": "Won",
+                "league": "Super Lig",
+                "apiId": 1584394,
+                "matchLookup": "Matched (90%)",
+                "homeScore": 2,
+                "awayScore": 3,
+                "apiStatus": "FT"
               },
               {
                 "match": "Heracles Almelo vs De Graafschap",
                 "pick": "Over 1.5",
                 "odds": 1.25,
                 "time": "21:00",
-                "status": "Pending",
-                "league": "Eerste Divisie"
+                "status": "Won",
+                "league": "Eerste Divisie",
+                "apiId": 1551780,
+                "matchLookup": "Matched (95%)",
+                "homeScore": 5,
+                "awayScore": 0,
+                "apiStatus": "FT"
               },
               {
                 "match": "K Beerschot VA vs Patro Eisden Maasmechelen",
                 "pick": "1",
                 "odds": 1.65,
                 "time": "21:00",
-                "status": "Pending",
-                "league": "Challenger Pro League"
+                "status": "Won",
+                "league": "Challenger Pro League",
+                "apiId": 1559148,
+                "matchLookup": "Matched (90%)",
+                "homeScore": 4,
+                "awayScore": 2,
+                "apiStatus": "FT"
               },
               {
                 "match": "Connah's Quay Nomads FC vs Haverfordwest County AFC",
                 "pick": "1",
                 "odds": 1.3,
                 "time": "21:45",
-                "status": "Pending",
-                "league": "Cymru Premier"
+                "status": "Lost",
+                "league": "Cymru Premier",
+                "apiId": 1575935,
+                "matchLookup": "Matched (95%)",
+                "homeScore": 1,
+                "awayScore": 1,
+                "apiStatus": "FT"
               },
               {
                 "match": "Real Betis Seville vs Real Madrid",
                 "pick": " Under 4.5",
                 "odds": "1.39",
                 "time": "22:00",
-                "status": "Pending",
-                "league": "LaLiga"
+                "status": "Won",
+                "league": "LaLiga",
+                "apiId": 1570365,
+                "matchLookup": "Matched (95%)",
+                "homeScore": 1,
+                "awayScore": 0,
+                "apiStatus": "FT"
               }
             ],
-            "legsWon": 0,
-            "legsLost": 0,
-            "legsPending": 5,
+            "legsWon": 4,
+            "legsLost": 1,
+            "legsPending": 0,
             "legsTotal": 5
           }
         ]
