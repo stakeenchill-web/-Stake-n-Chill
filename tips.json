@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05 05:49:52",
+  "updatedAt": "2026-09-09 05:13:07",
   "days": [
     {
       "date": "2026-09-03",
@@ -387,6 +387,48 @@
             "legsTotal": 5
           }
         ]
+      }
+    },
+    {
+      "date": "2026-09-09",
+      "featured": {
+        "title": "Tip of the Day",
+        "description": "Our model identified Over 2.5 Goals by analyzing team statistics, head-to-head history, and league scoring trends. With 83% of previous meetings producing 3+ goals, combined with the high-scoring nature of the U23 league, the model flagged this as a strong opportunity for a multi-goal game.\n",
+        "match": {
+          "match": "Benfica U23s vs Vizela u23s",
+          "pick": "Over 2.5",
+          "odds": 1.67,
+          "time": "19:00",
+          "status": "Pending"
+        }
+      },
+      "odds": {
+        "2": [
+          {
+            "sport": "Football",
+            "league": "",
+            "result": "Pending",
+            "combinedOdds": 2.04,
+            "matches": [
+              {
+                "match": "Benfica U23s vs Vizela U23s",
+                "pick": "Over 2.5",
+                "odds": "1.67",
+                "time": "19:00",
+                "status": "Pending"
+              },
+              {
+                "match": "Stuttgart vs Viking",
+                "pick": "1 win",
+                "odds": "1.22",
+                "time": "19:45",
+                "status": "Pending"
+              }
+            ]
+          }
+        ],
+        "3": [],
+        "5": []
       }
     }
   ]
