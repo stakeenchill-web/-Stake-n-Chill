@@ -45,6 +45,35 @@ const today = () => {
 
 const validOddsTypes = ["2", "3", "5"];
 
+function defaultFeatured() {
+  return {
+    title: "Tip of the Day",
+    description: "",
+    match: {
+      match: "",
+      pick: "",
+      odds: 1,
+      time: "",
+      status: "Pending"
+    }
+  };
+}
+
+function ensureFeaturedStructure(featured) {
+  const safeFeatured = featured && typeof featured === "object" ? featured : {};
+
+  safeFeatured.title ??= "Tip of the Day";
+  safeFeatured.description ??= "";
+  safeFeatured.match ??= {};
+  safeFeatured.match.match ??= "";
+  safeFeatured.match.pick ??= "";
+  safeFeatured.match.odds ??= 1;
+  safeFeatured.match.time ??= "";
+  safeFeatured.match.status ??= "Pending";
+
+  return safeFeatured;
+}
+
 // ============================================================
 // GET / CREATE SELECTED DAY
 // ============================================================
@@ -55,6 +84,7 @@ function day() {
   if (!d) {
     d = {
       date,
+      featured: defaultFeatured(),
       odds: {
         "2": [],
         "3": [],
@@ -65,6 +95,7 @@ function day() {
     tips.days.push(d);
   }
 
+  d.featured = ensureFeaturedStructure(d.featured);
   d.odds ??= {};
 
   for (const k of validOddsTypes) {
@@ -140,6 +171,8 @@ function render() {
   if (title) {
     title.textContent = odds + " Odds";
   }
+
+  renderFeaturedEditor();
 
   const l = $("list");
 
@@ -367,6 +400,26 @@ function render() {
 // PREVIEW
 // ============================================================
 
+function renderFeaturedEditor() {
+  const featured = day().featured;
+
+  const title = $("featuredTitle");
+  const description = $("featuredDescription");
+  const match = $("featuredMatch");
+  const pick = $("featuredPick");
+  const oddsInput = $("featuredOdds");
+  const time = $("featuredTime");
+  const status = $("featuredStatus");
+
+  if (title) title.value = featured.title || "Tip of the Day";
+  if (description) description.value = featured.description || "";
+  if (match) match.value = featured.match?.match || "";
+  if (pick) pick.value = featured.match?.pick || "";
+  if (oddsInput) oddsInput.value = featured.match?.odds ?? 1;
+  if (time) time.value = featured.match?.time || "";
+  if (status) status.value = featured.match?.status || "Pending";
+}
+
 function preview() {
 
   const p = $("preview");
@@ -375,14 +428,55 @@ function preview() {
 
   p.innerHTML = "";
 
+  const featured = day().featured;
+
+  const featuredPreview = document.createElement("div");
+
+  featuredPreview.className = "preview feature-preview";
+
+  featuredPreview.innerHTML = `
+    <div class="small">Tip of the Day</div>
+
+    <b>
+      ${esc(featured.title || "Tip of the Day")}
+    </b>
+
+    <p>
+      ${esc(featured.description || "Add a description for this featured tip.")}
+    </p>
+
+    <p>
+      <b>
+        ${esc(featured.match?.match || "Match")}
+      </b>
+
+      <br>
+
+      ${esc(featured.match?.pick || "Pick")}
+      @
+      ${Number(featured.match?.odds || 0).toFixed(2)}
+
+      <br>
+
+      <span class="small">
+        ${esc(featured.match?.time || "")}
+        ·
+        ${esc(featured.match?.status || "Pending")}
+      </span>
+    </p>
+  `;
+
+  p.appendChild(featuredPreview);
+
   const currentList = list();
 
   if (!currentList.length) {
-    p.innerHTML = `
-      <div class="preview">
-        <p>No tips available for this date.</p>
-      </div>
-    `;
+    const empty = document.createElement("div");
+
+    empty.className = "preview";
+    empty.innerHTML = `<p>No tips available for this date.</p>`;
+
+    p.appendChild(empty);
 
     return;
   }
@@ -1009,6 +1103,56 @@ if ($("list")) {
 // ============================================================
 // INPUT / SELECT EVENTS
 // ============================================================
+
+if ($("featuredTitle")) {
+  $("featuredTitle").oninput = event => {
+    day().featured.title = event.target.value || "Tip of the Day";
+    preview();
+  };
+}
+
+if ($("featuredDescription")) {
+  $("featuredDescription").oninput = event => {
+    day().featured.description = event.target.value;
+    preview();
+  };
+}
+
+if ($("featuredMatch")) {
+  $("featuredMatch").oninput = event => {
+    day().featured.match.match = event.target.value;
+    preview();
+  };
+}
+
+if ($("featuredPick")) {
+  $("featuredPick").oninput = event => {
+    day().featured.match.pick = event.target.value;
+    preview();
+  };
+}
+
+if ($("featuredOdds")) {
+  $("featuredOdds").oninput = event => {
+    const value = parseFloat(event.target.value);
+    day().featured.match.odds = Number.isFinite(value) ? value : 1;
+    preview();
+  };
+}
+
+if ($("featuredTime")) {
+  $("featuredTime").oninput = event => {
+    day().featured.match.time = event.target.value;
+    preview();
+  };
+}
+
+if ($("featuredStatus")) {
+  $("featuredStatus").onchange = event => {
+    day().featured.match.status = event.target.value;
+    preview();
+  };
+}
 
 if ($("list")) {
 

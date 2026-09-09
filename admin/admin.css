@@ -262,6 +262,64 @@ button:disabled {
 }
 
 /* =========================
+   FEATURED TIP
+========================= */
+
+.featured-panel {
+  margin-bottom: 18px;
+}
+
+.featured-header {
+  margin-bottom: 14px;
+}
+
+.featured-header h2 {
+  margin: 0;
+}
+
+.featured-header .small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.featured-description-field {
+  margin-top: 12px;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+
+  margin-top: 6px;
+
+  background: #090d07;
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  padding: 10px 11px;
+
+  font: inherit;
+  font-size: 14px;
+
+  outline: none;
+}
+
+textarea:focus {
+  border-color: var(--accent);
+}
+
+/* =========================
    MAIN CONTENT GRID
 ========================= */
 
@@ -385,6 +443,11 @@ button:disabled {
   margin-bottom: 10px;
 
   overflow-wrap: anywhere;
+}
+
+.feature-preview {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(168, 224, 99, 0.12), rgba(9, 13, 7, 1));
 }
 
 .preview p {
@@ -528,6 +591,10 @@ button:disabled {
     gap: 10px;
 
     margin-bottom: 14px;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
   }
 
   .toolbar button {

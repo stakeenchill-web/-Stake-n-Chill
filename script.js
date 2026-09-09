@@ -105,6 +105,7 @@ async function loadSite() {
     config = await configResponse.json();
 
     applyConfig();
+    setupSocialPopup();
     setupSupportModal();
     initializeDate();
     render();
@@ -112,6 +113,7 @@ async function loadSite() {
     console.error('loadSite error', error);
     tipsData = [];
     applyConfig();
+    setupSocialPopup();
     setupSupportModal();
     initializeDate();
     render();
@@ -125,13 +127,61 @@ function applyConfig() {
   const tg = $("#telegramBtn");
   const fb = $("#facebookBtn");
   const wa = $("#whatsappBtn");
+  const popupTg = $("#popupTelegramBtn");
+  const popupFb = $("#popupFacebookBtn");
+  const popupWa = $("#popupWhatsappBtn");
+
   if (tg) tg.href = safeUrl(config.telegram);
   if (fb) fb.href = safeUrl(config.facebook);
   if (wa) wa.href = safeUrl(config.whatsapp);
+  if (popupTg) popupTg.href = safeUrl(config.telegram);
+  if (popupFb) popupFb.href = safeUrl(config.facebook);
+  if (popupWa) popupWa.href = safeUrl(config.whatsapp);
 
   document.title = config.siteTitle || "Stake ń Chill | Free Sports Predictions";
   const yearEl = $("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+}
+
+function setupSocialPopup() {
+  const popup = $("#socialPopup");
+  const closeBtn = $("#closeSocialPopup");
+  const dismissBtn = $("#dismissSocialPopup");
+  if (!popup) return;
+
+  const dismissPopup = () => {
+    popup.classList.add("hidden");
+    popup.setAttribute("aria-hidden", "true");
+    try {
+      sessionStorage.setItem("stakeNChillSocialPopupSeen", "true");
+    } catch (error) {
+      console.warn("Could not save social popup session state", error);
+    }
+  };
+
+  try {
+    const alreadySeen = sessionStorage.getItem("stakeNChillSocialPopupSeen") === "true";
+    if (alreadySeen) {
+      dismissPopup();
+      return;
+    }
+  } catch (error) {
+    console.warn("Could not read social popup session state", error);
+  }
+
+  setTimeout(() => {
+    popup.classList.remove("hidden");
+    popup.setAttribute("aria-hidden", "false");
+  }, 500);
+
+  closeBtn?.addEventListener("click", dismissPopup);
+  dismissBtn?.addEventListener("click", dismissPopup);
+  popup.addEventListener("click", (event) => {
+    if (event.target === popup) dismissPopup();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !popup.classList.contains("hidden")) dismissPopup();
+  });
 }
 
 function setupSupportModal() {

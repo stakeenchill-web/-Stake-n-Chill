@@ -168,6 +168,40 @@
     </div>
   </div>
 
+  <div id="socialPopup" class="social-modal hidden" aria-hidden="true">
+    <div class="social-modal-card" role="dialog" aria-modal="true" aria-labelledby="socialPopupTitle">
+      <button class="social-close" id="closeSocialPopup" type="button" aria-label="Close social popup">✕</button>
+
+      <div class="social-popup-header">
+        <div class="social-popup-icon">📣</div>
+        <div>
+          <h3 id="socialPopupTitle">Join Stake ń Chill on social media</h3>
+          <p>Get the latest tips, community updates, and daily picks where you already hang out.</p>
+        </div>
+      </div>
+
+      <div class="social-popup-grid">
+        <a class="social-popup-link telegram" id="popupTelegramBtn" href="https://t.me/StakeEnChill" target="_blank" rel="noopener">
+          <span>✈</span>
+          <b>Telegram</b>
+          <small>Join the public channel</small>
+        </a>
+        <a class="social-popup-link facebook" id="popupFacebookBtn" href="https://www.facebook.com/profile.php?id=61593842558774" target="_blank" rel="noopener">
+          <span>f</span>
+          <b>Facebook</b>
+          <small>Follow our page</small>
+        </a>
+        <a class="social-popup-link whatsapp" id="popupWhatsappBtn" href="https://whatsapp.com/channel/0029VbEND9CFy72GSDbvec1v" target="_blank" rel="noopener">
+          <span>◉</span>
+          <b>WhatsApp</b>
+          <small>Join our channel</small>
+        </a>
+      </div>
+
+      <button class="social-dismiss" id="dismissSocialPopup" type="button">Maybe later</button>
+    </div>
+  </div>
+
   <script>
     // ensure today button text immediately shows if JS loads after HTML
     document.addEventListener('DOMContentLoaded', () => {
