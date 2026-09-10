@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10 03:05:53",
+  "updatedAt": "2026-09-10 03:11:33",
   "days": [
     {
       "date": "2026-09-03",
@@ -477,7 +477,44 @@
             ]
           }
         ],
-        "3": [],
+        "3": [
+          {
+            "sport": "Football",
+            "league": "UCL",
+            "result": "Pending",
+            "combinedOdds": 3.07,
+            "matches": [
+              {
+                "match": "Bayern Munich vs Bodoe/Glimnt",
+                "pick": "Over 3",
+                "odds": "1.35",
+                "time": "10:00",
+                "status": "Pending"
+              },
+              {
+                "match": "PSV vs Shakhtar donetsk",
+                "pick": "Over 2",
+                "odds": "1.25",
+                "time": "07:45",
+                "status": "Pending"
+              },
+              {
+                "match": "Como vs Leipzig",
+                "pick": "1X",
+                "odds": "1.30",
+                "time": "10:00",
+                "status": "Pending"
+              },
+              {
+                "match": "Manchester United vs Sabah",
+                "pick": "1 half 1",
+                "odds": "1.40",
+                "time": "10:45",
+                "status": "Pending"
+              }
+            ]
+          }
+        ],
         "5": []
       }
     }
