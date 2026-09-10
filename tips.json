@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10 03:01:34",
+  "updatedAt": "2026-09-10 03:03:19",
   "days": [
     {
       "date": "2026-09-03",
@@ -427,7 +427,7 @@
                 "pick": "1 win",
                 "odds": "1.22",
                 "time": "19:45",
-                "status": "Won",
+                "status": "Pending",
                 "apiId": 1635741,
                 "matchLookup": "Matched (95%)",
                 "homeScore": 3,
@@ -440,6 +440,41 @@
             "legsLost": 1,
             "legsPending": 1,
             "legsTotal": 2
+          }
+        ],
+        "3": [],
+        "5": []
+      }
+    },
+    {
+      "date": "2026-09-10",
+      "featured": {
+        "title": "Tip of the Day",
+        "description": "",
+        "match": {
+          "match": "",
+          "pick": "",
+          "odds": 1,
+          "time": "",
+          "status": "Pending"
+        }
+      },
+      "odds": {
+        "2": [
+          {
+            "sport": "Football",
+            "league": "UCL",
+            "result": "Pending",
+            "combinedOdds": 2.25,
+            "matches": [
+              {
+                "match": "Fenerbahce vs Roma",
+                "pick": "2",
+                "odds": "2.25",
+                "time": "07:45",
+                "status": "Pending"
+              }
+            ]
           }
         ],
         "3": [],
