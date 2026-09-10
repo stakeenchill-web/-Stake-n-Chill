@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09 05:13:07",
+  "updatedAt": "2026-09-10 05:57:31",
   "days": [
     {
       "date": "2026-09-03",
@@ -407,7 +407,7 @@
           {
             "sport": "Football",
             "league": "",
-            "result": "Pending",
+            "result": "Lost",
             "combinedOdds": 2.04,
             "matches": [
               {
@@ -415,16 +415,31 @@
                 "pick": "Over 2.5",
                 "odds": "1.67",
                 "time": "19:00",
-                "status": "Pending"
+                "status": "Lost",
+                "apiId": 1598674,
+                "matchLookup": "Matched (90%)",
+                "homeScore": 0,
+                "awayScore": 1,
+                "apiStatus": "FT"
               },
               {
                 "match": "Stuttgart vs Viking",
                 "pick": "1 win",
                 "odds": "1.22",
                 "time": "19:45",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1635741,
+                "matchLookup": "Matched (95%)",
+                "homeScore": 3,
+                "awayScore": 1,
+                "apiStatus": "FT",
+                "resultStatus": "Unsupported Market"
               }
-            ]
+            ],
+            "legsWon": 0,
+            "legsLost": 1,
+            "legsPending": 1,
+            "legsTotal": 2
           }
         ],
         "3": [],
