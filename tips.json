@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10 03:20:01",
+  "updatedAt": "2026-09-10 03:23:22",
   "days": [
     {
       "date": "2026-09-03",
@@ -469,7 +469,7 @@
             "matches": [
               {
                 "match": "Fenerbahce vs Roma",
-                "pick": "2",
+                "pick": "2 win",
                 "odds": "2.25",
                 "time": "19:45",
                 "status": "Pending"
