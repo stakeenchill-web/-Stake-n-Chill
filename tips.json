@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10 03:03:19",
+  "updatedAt": "2026-09-10 03:05:53",
   "days": [
     {
       "date": "2026-09-03",
@@ -452,10 +452,10 @@
         "title": "Tip of the Day",
         "description": "",
         "match": {
-          "match": "",
-          "pick": "",
-          "odds": 1,
-          "time": "",
+          "match": "Psv U19 vs Shakhtar donetsk U19 ",
+          "pick": "Over 2.5",
+          "odds": 1.48,
+          "time": "03:00",
           "status": "Pending"
         }
       },
