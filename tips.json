@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10 03:23:22",
+  "updatedAt": "2026-09-10 03:23:43",
   "days": [
     {
       "date": "2026-09-03",
@@ -424,7 +424,7 @@
               },
               {
                 "match": "Stuttgart vs Viking",
-                "pick": "1 win",
+                "pick": "1",
                 "odds": "1.22",
                 "time": "19:45",
                 "status": "Pending",
@@ -469,7 +469,7 @@
             "matches": [
               {
                 "match": "Fenerbahce vs Roma",
-                "pick": "2 win",
+                "pick": "2",
                 "odds": "2.25",
                 "time": "19:45",
                 "status": "Pending"
