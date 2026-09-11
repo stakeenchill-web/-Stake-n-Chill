@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11 05:37:23",
+  "updatedAt": "2026-09-11 07:42:30",
   "days": [
     {
       "date": "2026-09-03",
@@ -614,6 +614,99 @@
             "legsTotal": 4
           }
         ]
+      }
+    },
+    {
+      "date": "2026-09-11",
+      "featured": {
+        "title": "Tip of the Day",
+        "description": "",
+        "match": {
+          "match": "",
+          "pick": "",
+          "odds": 1,
+          "time": "",
+          "status": "Pending"
+        }
+      },
+      "odds": {
+        "2": [
+          {
+            "sport": "Football",
+            "league": "",
+            "result": "Pending",
+            "combinedOdds": 0,
+            "matches": []
+          },
+          {
+            "sport": "Football",
+            "league": "",
+            "result": "Pending",
+            "combinedOdds": 2.14,
+            "matches": [
+              {
+                "match": "Burgos vs Ceuta",
+                "pick": "Full-time 1",
+                "odds": "1.67",
+                "time": "21:30",
+                "status": "Pending"
+              },
+              {
+                "match": "Besiktas vs Erzurumspor",
+                "pick": "Full-time 1",
+                "odds": "1.22",
+                "time": "20:00",
+                "status": "Pending"
+              },
+              {
+                "match": "Sevilla vs Valencia",
+                "pick": "Full-time 1X",
+                "odds": "1.05",
+                "time": "22:00",
+                "status": "Pending"
+              }
+            ]
+          }
+        ],
+        "3": [
+          {
+            "sport": "Football",
+            "league": "",
+            "result": "Pending",
+            "combinedOdds": 3.17,
+            "matches": [
+              {
+                "match": "Rennes vs Marseille",
+                "pick": "Over 2.5",
+                "odds": "1.50",
+                "time": "22:35",
+                "status": "Pending"
+              },
+              {
+                "match": "AZ Alkmaar vs Willem II",
+                "pick": "Over 2.5",
+                "odds": "1.29",
+                "time": "21:00",
+                "status": "Pending"
+              },
+              {
+                "match": "Nurnberg vs Hannover",
+                "pick": "Over 2.5",
+                "odds": "1.39",
+                "time": "19:30",
+                "status": "Pending"
+              },
+              {
+                "match": "Copenhagen vs Horsens",
+                "pick": "Over 1.5",
+                "odds": "1.18",
+                "time": "20:00",
+                "status": "Pending"
+              }
+            ]
+          }
+        ],
+        "5": []
       }
     }
   ]
