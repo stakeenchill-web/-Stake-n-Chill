@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11 07:42:30",
+  "updatedAt": "2026-09-11 07:55:38",
   "days": [
     {
       "date": "2026-09-03",
@@ -706,7 +706,51 @@
             ]
           }
         ],
-        "5": []
+        "5": [
+          {
+            "sport": "Football",
+            "league": "",
+            "result": "Pending",
+            "combinedOdds": 5.16,
+            "matches": [
+              {
+                "match": "Heracles vs Jong AZ Alkmaar",
+                "pick": "Over 3",
+                "odds": "1.34",
+                "time": "21:00",
+                "status": "Pending"
+              },
+              {
+                "match": "Emmen vs De Graafschap",
+                "pick": "Over 2.5",
+                "odds": "1.38",
+                "time": "21:00",
+                "status": "Pending"
+              },
+              {
+                "match": "Helmond vs Jong PSV",
+                "pick": "Over 2.5",
+                "odds": "1.48",
+                "time": "21:00",
+                "status": "Pending"
+              },
+              {
+                "match": "Ried vs Salzburg",
+                "pick": "Full-time 2",
+                "odds": "1.52",
+                "time": "20:30",
+                "status": "Pending"
+              },
+              {
+                "match": "Clermont vs Boulogne",
+                "pick": "Under 3.5",
+                "odds": "1.24",
+                "time": "21:00",
+                "status": "Pending"
+              }
+            ]
+          }
+        ]
       }
     }
   ]
