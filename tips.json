@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11 08:01:19",
+  "updatedAt": "2026-09-11 08:31:38",
   "days": [
     {
       "date": "2026-09-03",
@@ -635,7 +635,7 @@
             "sport": "Football",
             "league": "",
             "result": "Pending",
-            "combinedOdds": 2.14,
+            "combinedOdds": 2.44,
             "matches": [
               {
                 "match": "Burgos vs Ceuta",
@@ -654,7 +654,7 @@
               {
                 "match": "Sevilla vs Valencia",
                 "pick": "Full-time 1X",
-                "odds": "1.05",
+                "odds": "1.20",
                 "time": "22:00",
                 "status": "Pending"
               }
