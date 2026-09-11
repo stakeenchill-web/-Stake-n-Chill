@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11 07:59:02",
+  "updatedAt": "2026-09-11 08:00:11",
   "days": [
     {
       "date": "2026-09-03",
@@ -631,13 +631,6 @@
       },
       "odds": {
         "2": [
-          {
-            "sport": "Football",
-            "league": "",
-            "result": "Pending",
-            "combinedOdds": 0,
-            "matches": []
-          },
           {
             "sport": "Football",
             "league": "",
