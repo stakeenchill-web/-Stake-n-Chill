@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11 07:55:38",
+  "updatedAt": "2026-09-11 07:59:02",
   "days": [
     {
       "date": "2026-09-03",
@@ -620,12 +620,12 @@
       "date": "2026-09-11",
       "featured": {
         "title": "Tip of the Day",
-        "description": "",
+        "description": "West Ham's attack is on fire with ten goals in three games, making them highly capable of driving a high score. However, they are leaking goals at the back, keeping only one clean sheet in their last eight matches. This mix of a dangerous frontline and a shaky defense makes backing Over 2.5 goals a smart choice for this matchup.",
         "match": {
-          "match": "",
-          "pick": "",
-          "odds": 1,
-          "time": "",
+          "match": "Westham vs Wrexham",
+          "pick": "Over 2.5",
+          "odds": 1.7,
+          "time": "19:00",
           "status": "Pending"
         }
       },
