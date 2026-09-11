@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11 05:53:15",
+  "updatedAt": "2026-09-11 05:34:48",
   "days": [
     {
       "date": "2026-09-03",
@@ -455,7 +455,7 @@
           "pick": "Over 2.5",
           "odds": 1.48,
           "time": "15:00",
-          "status": "Pending"
+          "status": "Lost"
         }
       },
       "odds": {
