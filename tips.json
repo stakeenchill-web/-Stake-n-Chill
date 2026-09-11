@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11 05:34:48",
+  "updatedAt": "2026-09-11 05:35:05",
   "days": [
     {
       "date": "2026-09-03",
@@ -533,7 +533,7 @@
                 "pick": "1 half 1",
                 "odds": "1.40",
                 "time": "22:45",
-                "status": "Pending",
+                "status": "Won",
                 "apiId": 1635697,
                 "matchLookup": "Matched (100%)",
                 "homeScore": 4,
