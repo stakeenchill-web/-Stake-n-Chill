@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11 08:32:08",
+  "updatedAt": "2026-09-11 13:48:45",
   "days": [
     {
       "date": "2026-09-03",
@@ -509,7 +509,7 @@
                 "pick": "Over 2",
                 "odds": "1.25",
                 "time": "19:45",
-                "status": "Void",
+                "status": "Lost",
                 "apiId": 1635708,
                 "matchLookup": "Matched (100%)",
                 "homeScore": 1,
@@ -538,13 +538,12 @@
                 "matchLookup": "Matched (100%)",
                 "homeScore": 4,
                 "awayScore": 0,
-                "apiStatus": "FT",
-                "resultStatus": "Unsupported Market"
+                "apiStatus": "FT"
               }
             ],
-            "legsWon": 2,
+            "legsWon": 3,
             "legsLost": 1,
-            "legsPending": 1,
+            "legsPending": 0,
             "legsTotal": 4
           }
         ],
@@ -552,7 +551,7 @@
           {
             "sport": "Football",
             "league": "",
-            "result": "Pending",
+            "result": "Won",
             "combinedOdds": 7.74,
             "matches": [
               {
@@ -565,8 +564,7 @@
                 "matchLookup": "Matched (100%)",
                 "homeScore": 2,
                 "awayScore": 3,
-                "apiStatus": "FT",
-                "resultStatus": "Unsupported Market"
+                "apiStatus": "FT"
               },
               {
                 "match": "Estrela vs Braga",
@@ -578,8 +576,7 @@
                 "matchLookup": "Matched (100%)",
                 "homeScore": 2,
                 "awayScore": 1,
-                "apiStatus": "FT",
-                "resultStatus": "Unsupported Market"
+                "apiStatus": "FT"
               },
               {
                 "match": "Panathinaikos vs Kifisia",
@@ -591,8 +588,7 @@
                 "matchLookup": "Matched (100%)",
                 "homeScore": 3,
                 "awayScore": 1,
-                "apiStatus": "FT",
-                "resultStatus": "Unsupported Market"
+                "apiStatus": "FT"
               },
               {
                 "match": "Stevenage vs Luton",
@@ -604,13 +600,12 @@
                 "matchLookup": "Matched (100%)",
                 "homeScore": 2,
                 "awayScore": 1,
-                "apiStatus": "FT",
-                "resultStatus": "Unsupported Market"
+                "apiStatus": "FT"
               }
             ],
-            "legsWon": 0,
+            "legsWon": 4,
             "legsLost": 0,
-            "legsPending": 4,
+            "legsPending": 0,
             "legsTotal": 4
           }
         ]
@@ -642,23 +637,33 @@
                 "pick": "Full-time 1",
                 "odds": "1.67",
                 "time": "21:30",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1569916,
+                "matchLookup": "Matched (95%)"
               },
               {
                 "match": "Besiktas vs Erzurumspor",
                 "pick": "Full-time 1",
                 "odds": "1.22",
                 "time": "20:00",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1584405,
+                "matchLookup": "Matched (95%)"
               },
               {
                 "match": "Sevilla vs Valencia",
                 "pick": "Full-time 1X",
                 "odds": "1.20",
                 "time": "22:00",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1570381,
+                "matchLookup": "Matched (100%)"
               }
-            ]
+            ],
+            "legsWon": 0,
+            "legsLost": 0,
+            "legsPending": 3,
+            "legsTotal": 3
           }
         ],
         "3": [
@@ -673,30 +678,42 @@
                 "pick": "Over 2.5",
                 "odds": "1.50",
                 "time": "22:35",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1552763,
+                "matchLookup": "Matched (100%)"
               },
               {
                 "match": "AZ Alkmaar vs Willem II",
                 "pick": "Over 2.5",
                 "odds": "1.29",
                 "time": "21:00",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1552162,
+                "matchLookup": "Matched (100%)"
               },
               {
                 "match": "Nurnberg vs Hannover",
                 "pick": "Over 2.5",
                 "odds": "1.39",
                 "time": "19:30",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1576176,
+                "matchLookup": "Matched (90%)"
               },
               {
                 "match": "Copenhagen vs Horsens",
                 "pick": "Over 1.5",
                 "odds": "1.18",
                 "time": "20:00",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1549016,
+                "matchLookup": "Matched (95%)"
               }
-            ]
+            ],
+            "legsWon": 0,
+            "legsLost": 0,
+            "legsPending": 4,
+            "legsTotal": 4
           }
         ],
         "5": [
@@ -711,37 +728,51 @@
                 "pick": "Over 3",
                 "odds": "1.34",
                 "time": "21:00",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1551790,
+                "matchLookup": "Matched (95%)"
               },
               {
                 "match": "Emmen vs De Graafschap",
                 "pick": "Over 2.5",
                 "odds": "1.38",
                 "time": "21:00",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1551788,
+                "matchLookup": "Matched (100%)"
               },
               {
                 "match": "Helmond vs Jong PSV",
                 "pick": "Over 2.5",
                 "odds": "1.48",
                 "time": "21:00",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1551789,
+                "matchLookup": "Matched (90%)"
               },
               {
                 "match": "Ried vs Salzburg",
                 "pick": "Full-time 2",
                 "odds": "1.52",
                 "time": "20:30",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1561926,
+                "matchLookup": "Matched (95%)"
               },
               {
                 "match": "Clermont vs Boulogne",
                 "pick": "Under 3.5",
                 "odds": "1.24",
                 "time": "21:00",
-                "status": "Pending"
+                "status": "Pending",
+                "apiId": 1552468,
+                "matchLookup": "Matched (95%)"
               }
-            ]
+            ],
+            "legsWon": 0,
+            "legsLost": 0,
+            "legsPending": 5,
+            "legsTotal": 5
           }
         ]
       }
