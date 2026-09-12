@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11 13:48:45",
+  "updatedAt": "2026-09-12 05:59:52",
   "days": [
     {
       "date": "2026-09-03",
@@ -639,7 +639,11 @@
                 "time": "21:30",
                 "status": "Pending",
                 "apiId": 1569916,
-                "matchLookup": "Matched (95%)"
+                "matchLookup": "Matched (100%)",
+                "homeScore": 3,
+                "awayScore": 1,
+                "apiStatus": "FT",
+                "resultStatus": "Unsupported Market"
               },
               {
                 "match": "Besiktas vs Erzurumspor",
@@ -648,7 +652,11 @@
                 "time": "20:00",
                 "status": "Pending",
                 "apiId": 1584405,
-                "matchLookup": "Matched (95%)"
+                "matchLookup": "Matched (100%)",
+                "homeScore": 3,
+                "awayScore": 0,
+                "apiStatus": "FT",
+                "resultStatus": "Unsupported Market"
               },
               {
                 "match": "Sevilla vs Valencia",
@@ -657,7 +665,11 @@
                 "time": "22:00",
                 "status": "Pending",
                 "apiId": 1570381,
-                "matchLookup": "Matched (100%)"
+                "matchLookup": "Matched (100%)",
+                "homeScore": 1,
+                "awayScore": 0,
+                "apiStatus": "FT",
+                "resultStatus": "Unsupported Market"
               }
             ],
             "legsWon": 0,
@@ -670,7 +682,7 @@
           {
             "sport": "Football",
             "league": "",
-            "result": "Pending",
+            "result": "Lost",
             "combinedOdds": 3.17,
             "matches": [
               {
@@ -678,41 +690,53 @@
                 "pick": "Over 2.5",
                 "odds": "1.50",
                 "time": "22:35",
-                "status": "Pending",
+                "status": "Lost",
                 "apiId": 1552763,
-                "matchLookup": "Matched (100%)"
+                "matchLookup": "Matched (100%)",
+                "homeScore": 1,
+                "awayScore": 0,
+                "apiStatus": "FT"
               },
               {
                 "match": "AZ Alkmaar vs Willem II",
                 "pick": "Over 2.5",
                 "odds": "1.29",
                 "time": "21:00",
-                "status": "Pending",
+                "status": "Lost",
                 "apiId": 1552162,
-                "matchLookup": "Matched (100%)"
+                "matchLookup": "Matched (100%)",
+                "homeScore": 1,
+                "awayScore": 1,
+                "apiStatus": "FT"
               },
               {
                 "match": "Nurnberg vs Hannover",
                 "pick": "Over 2.5",
                 "odds": "1.39",
                 "time": "19:30",
-                "status": "Pending",
+                "status": "Won",
                 "apiId": 1576176,
-                "matchLookup": "Matched (90%)"
+                "matchLookup": "Matched (100%)",
+                "homeScore": 2,
+                "awayScore": 1,
+                "apiStatus": "FT"
               },
               {
                 "match": "Copenhagen vs Horsens",
                 "pick": "Over 1.5",
                 "odds": "1.18",
                 "time": "20:00",
-                "status": "Pending",
+                "status": "Won",
                 "apiId": 1549016,
-                "matchLookup": "Matched (95%)"
+                "matchLookup": "Matched (100%)",
+                "homeScore": 2,
+                "awayScore": 0,
+                "apiStatus": "FT"
               }
             ],
-            "legsWon": 0,
-            "legsLost": 0,
-            "legsPending": 4,
+            "legsWon": 2,
+            "legsLost": 2,
+            "legsPending": 0,
             "legsTotal": 4
           }
         ],
@@ -728,27 +752,36 @@
                 "pick": "Over 3",
                 "odds": "1.34",
                 "time": "21:00",
-                "status": "Pending",
+                "status": "Won",
                 "apiId": 1551790,
-                "matchLookup": "Matched (95%)"
+                "matchLookup": "Matched (100%)",
+                "homeScore": 3,
+                "awayScore": 2,
+                "apiStatus": "FT"
               },
               {
                 "match": "Emmen vs De Graafschap",
                 "pick": "Over 2.5",
                 "odds": "1.38",
                 "time": "21:00",
-                "status": "Pending",
+                "status": "Won",
                 "apiId": 1551788,
-                "matchLookup": "Matched (100%)"
+                "matchLookup": "Matched (100%)",
+                "homeScore": 1,
+                "awayScore": 2,
+                "apiStatus": "FT"
               },
               {
                 "match": "Helmond vs Jong PSV",
                 "pick": "Over 2.5",
                 "odds": "1.48",
                 "time": "21:00",
-                "status": "Pending",
+                "status": "Won",
                 "apiId": 1551789,
-                "matchLookup": "Matched (90%)"
+                "matchLookup": "Matched (100%)",
+                "homeScore": 3,
+                "awayScore": 1,
+                "apiStatus": "FT"
               },
               {
                 "match": "Ried vs Salzburg",
@@ -757,21 +790,28 @@
                 "time": "20:30",
                 "status": "Pending",
                 "apiId": 1561926,
-                "matchLookup": "Matched (95%)"
+                "matchLookup": "Matched (100%)",
+                "homeScore": 1,
+                "awayScore": 1,
+                "apiStatus": "FT",
+                "resultStatus": "Unsupported Market"
               },
               {
                 "match": "Clermont vs Boulogne",
                 "pick": "Under 3.5",
                 "odds": "1.24",
                 "time": "21:00",
-                "status": "Pending",
+                "status": "Won",
                 "apiId": 1552468,
-                "matchLookup": "Matched (95%)"
+                "matchLookup": "Matched (100%)",
+                "homeScore": 0,
+                "awayScore": 0,
+                "apiStatus": "FT"
               }
             ],
-            "legsWon": 0,
+            "legsWon": 4,
             "legsLost": 0,
-            "legsPending": 5,
+            "legsPending": 1,
             "legsTotal": 5
           }
         ]
