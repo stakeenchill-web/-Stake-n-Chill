@@ -478,6 +478,141 @@ textarea:focus {
 }
 
 /* =========================
+   API TIP PICKER
+========================= */
+
+.api-tips-panel {
+  margin-bottom: 18px;
+}
+
+.api-tips-header,
+.feed-actions,
+.tip-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.api-tips-header {
+  margin-bottom: 14px;
+}
+
+.api-tips-header h2,
+.tip-group-header h3 {
+  margin: 0;
+}
+
+.api-tips-header .small {
+  display: block;
+  margin-top: 4px;
+}
+
+.feed-actions {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.feed-actions .small {
+  margin-right: auto;
+}
+
+.tip-group {
+  margin-top: 18px;
+}
+
+.tip-group-header {
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.tip-category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr));
+  gap: 10px;
+}
+
+.tip-category {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #090d07;
+}
+
+.tip-category h4 {
+  margin: 0 0 9px;
+  color: var(--accent);
+  text-transform: capitalize;
+}
+
+.api-tip-list {
+  display: grid;
+  gap: 8px;
+}
+
+.api-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  min-width: 0;
+  padding: 9px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.api-tip.is-selected {
+  border-color: var(--accent);
+  background: #a8e06312;
+}
+
+.api-tip input[type="checkbox"] {
+  display: block;
+  width: 17px;
+  min-width: 17px;
+  height: 17px;
+  margin: 2px 0 0;
+  accent-color: var(--accent);
+}
+
+.api-tip-content,
+.api-tip-meta {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.api-tip-content {
+  flex: 1;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
+
+.api-tip-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.api-tip-source {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.category-empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* =========================
    TABLET
 ========================= */
 
@@ -595,6 +730,27 @@ textarea:focus {
 
   .featured-grid {
     grid-template-columns: 1fr;
+  }
+
+  .api-tips-header,
+  .tip-group-header {
+    align-items: flex-start;
+  }
+
+  .api-tips-header {
+    flex-direction: column;
+  }
+
+  .api-tips-header button {
+    width: 100%;
+  }
+
+  .feed-actions .small {
+    width: 100%;
+  }
+
+  .feed-actions button {
+    flex: 1;
   }
 
   .toolbar button {

@@ -10,6 +10,9 @@
 
 ## Important
 The website reads `tips.json` and `config.json` in the same folder.
+The admin dashboard can also load selected Free and VIP categories from the
+Mchumwa and Fasttrack tip APIs. Select tips, choose an odds section, and add
+them as an editable accumulator before publishing.
 
 ### Add social links
 Open `config.json` and replace:
@@ -68,9 +71,9 @@ How to update results:
 - The website can display the correct badge automatically based on that value
 
 Important:
-- This is not automatically pulled from a betting site or API.
+- API tips appear in the admin dashboard for review; they are not published to
+  `tips.json` until you select them and publish from the dashboard.
 - If you want the status to change to Won or Lost, you must update the JSON manually after the result is known.
-- You can later connect this to an API if you want automatic updates in the future.
 
 The supplied starter `tips.json` is intentionally empty so you can paste your own picks.
 

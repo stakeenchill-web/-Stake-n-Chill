@@ -10,6 +10,34 @@ const API_URL =
 // Public tips file
 const DATA = "../tips.json";
 
+const TIP_FEEDS = [
+  {
+    group: "free",
+    source: "Mchumwa",
+    url: "https://mchumwasure.top/api/free-tips"
+  },
+  {
+    group: "free",
+    source: "Fasttrack",
+    url: "https://fasttrack.smartwiseagencies.com/api/free-tips"
+  },
+  {
+    group: "vip",
+    source: "Mchumwa",
+    url: "https://mchumwasure.top/api/vip-tips"
+  },
+  {
+    group: "vip",
+    source: "Fasttrack",
+    url: "https://fasttrack.smartwiseagencies.com/api/vip-tips"
+  }
+];
+
+const tipCategories = {
+  free: ["sure", "kickstart", "over", "under", "gg", "free"],
+  vip: ["htft", "quantum", "daily", "surestreak"]
+};
+
 // ============================================================
 // GLOBAL STATE
 // ============================================================
@@ -22,6 +50,12 @@ let tips = {
 let pw = "";
 let date = "";
 let odds = "2";
+let apiTips = [];
+let selectedApiTips = new Set();
+let feedStatuses = {
+  free: "Not loaded",
+  vip: "Not loaded"
+};
 
 // ============================================================
 // HELPERS
@@ -111,6 +145,198 @@ function day() {
 
 function list() {
   return day().odds[odds];
+}
+
+function normalizeApiTip(rawTip, feed) {
+  if (!rawTip || typeof rawTip !== "object") return null;
+
+  const category = String(rawTip.category || "").toLowerCase();
+  const matchName = [rawTip.team_one, rawTip.team_two]
+    .map(value => String(value || "").trim())
+    .filter(Boolean)
+    .join(" vs ");
+  const tipOdds = Number.parseFloat(rawTip.odds_value);
+  const tipId = String(rawTip.id ?? `${matchName}:${rawTip.tips_name || ""}`);
+
+  if (
+    !tipCategories[feed.group].includes(category) ||
+    !matchName ||
+    !String(rawTip.tips_name || "").trim() ||
+    !Number.isFinite(tipOdds) ||
+    tipOdds <= 1
+  ) {
+    return null;
+  }
+
+  return {
+    key: `${feed.group}:${feed.source}:${tipId}`,
+    group: feed.group,
+    source: feed.source,
+    category,
+    league: String(rawTip.league_name || "Various"),
+    match: matchName,
+    pick: String(rawTip.tips_name).trim(),
+    odds: tipOdds,
+    time: String(rawTip.time || "").slice(0, 5),
+    status: String(rawTip.status || "Pending"),
+    id: tipId
+  };
+}
+
+function renderTipFeeds() {
+  for (const group of ["free", "vip"]) {
+    const container = $(group === "free" ? "freeTipCategories" : "vipTipCategories");
+    const status = $(group === "free" ? "freeFeedStatus" : "vipFeedStatus");
+
+    if (status) status.textContent = feedStatuses[group];
+    if (!container) continue;
+
+    container.innerHTML = tipCategories[group].map(category => {
+      const categoryTips = apiTips.filter(tip =>
+        tip.group === group && tip.category === category
+      );
+
+      const rows = categoryTips.length
+        ? categoryTips.map(tip => `
+            <label class="api-tip ${selectedApiTips.has(tip.key) ? "is-selected" : ""}">
+              <input
+                type="checkbox"
+                data-api-tip="${esc(tip.key)}"
+                ${selectedApiTips.has(tip.key) ? "checked" : ""}
+              >
+              <span class="api-tip-content">
+                <span class="api-tip-meta">
+                  <span class="api-tip-source">${esc(tip.source)} API</span>
+                  <span>${esc(tip.league)}</span>
+                </span>
+                <strong>${esc(tip.match)}</strong>
+                <span>${esc(tip.pick)} · ${tip.odds.toFixed(2)} odds</span>
+                <span class="small">${esc(tip.time || "Time not set")} · ${esc(tip.status)}</span>
+              </span>
+            </label>
+          `).join("")
+        : `<p class="category-empty">No ${esc(category)} tips from the loaded feeds.</p>`;
+
+      return `
+        <section class="tip-category">
+          <h4>${esc(category)}</h4>
+          <div class="api-tip-list">${rows}</div>
+        </section>
+      `;
+    }).join("");
+  }
+
+  updateTipSelectionControls();
+}
+
+function updateTipSelectionControls() {
+  const count = selectedApiTips.size;
+  const countLabel = $("selectedTipCount");
+  const addButton = $("addSelectedTips");
+
+  if (countLabel) {
+    countLabel.textContent = `${count} tip${count === 1 ? "" : "s"} selected`;
+  }
+
+  if (addButton) {
+    addButton.textContent = `Add selected to ${odds} Odds`;
+    addButton.disabled = count === 0;
+  }
+}
+
+async function loadApiTips() {
+  apiTips = [];
+  selectedApiTips.clear();
+  feedStatuses = { free: "Loading…", vip: "Loading…" };
+  renderTipFeeds();
+
+  const results = await Promise.allSettled(TIP_FEEDS.map(async feed => {
+    const response = await fetch(feed.url, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`${feed.source} ${feed.group} tips returned HTTP ${response.status}`);
+    }
+
+    const payload = await response.json();
+    if (!payload || !Array.isArray(payload.data)) {
+      throw new Error(`${feed.source} ${feed.group} tips returned an invalid response`);
+    }
+
+    const normalizedTips = payload.data
+      .map(rawTip => normalizeApiTip(rawTip, feed))
+      .filter(Boolean);
+
+    return {
+      group: feed.group,
+      source: feed.source,
+      tips: normalizedTips,
+      invalidCount: payload.data.length - normalizedTips.length
+    };
+  }));
+
+  const groupResults = { free: [], vip: [] };
+  const groupErrors = { free: [], vip: [] };
+
+  results.forEach((result, index) => {
+    if (result.status === "fulfilled") {
+      groupResults[result.value.group].push(result.value);
+      apiTips.push(...result.value.tips);
+    } else {
+      const feed = TIP_FEEDS[index];
+      const errorMessage = result.reason?.message || "Request failed";
+      groupErrors[feed.group].push(`${feed.source}: ${errorMessage}`);
+      console.error(`Could not load ${feed.source} ${feed.group} API tips:`, result.reason);
+    }
+  });
+
+  for (const group of ["free", "vip"]) {
+    const sources = groupResults[group];
+    const tipsCount = sources.reduce((sum, source) => sum + source.tips.length, 0);
+    const invalidCount = sources.reduce((sum, source) => sum + source.invalidCount, 0);
+    const failedSources = 2 - sources.length;
+
+    feedStatuses[group] = `${tipsCount} tips · ${sources.length}/2 APIs loaded`;
+    if (failedSources) feedStatuses[group] += ` · ${groupErrors[group].join("; ")}`;
+    if (invalidCount) feedStatuses[group] += ` · ${invalidCount} invalid tip${invalidCount === 1 ? "" : "s"} skipped`;
+  }
+  renderTipFeeds();
+  renderTipFeeds();
+}
+
+function addSelectedApiTips() {
+  const selectedTips = apiTips.filter(tip => selectedApiTips.has(tip.key));
+  if (!selectedTips.length) return;
+
+  const matches = selectedTips.map(tip => ({
+    match: tip.match,
+    pick: tip.pick,
+    odds: tip.odds,
+    time: tip.time,
+    status: ["Pending", "Won", "Lost", "Void"].includes(tip.status)
+      ? tip.status
+      : "Pending",
+    apiSource: tip.source,
+    apiCategory: tip.category,
+    apiTipId: tip.id
+  }));
+
+  const leagues = [...new Set(selectedTips.map(tip => tip.league))];
+  list().push({
+    sport: "Football",
+    league: leagues.length === 1 ? leagues[0] : "Various",
+    result: "Pending",
+    combinedOdds: 0,
+    matches
+  });
+
+  selectedApiTips.clear();
+  renderTipFeeds();
+  render();
+
+  const message = $("msg");
+  if (message) {
+    message.textContent =
+      `${matches.length} selected tip${matches.length === 1 ? "" : "s"} added to ${odds} Odds.`;
+  }
 }
 
 // ============================================================
@@ -677,6 +903,7 @@ async function login() {
   date = $("date").value = today();
 
   load();
+  loadApiTips();
 }
 
 // ============================================================
@@ -978,7 +1205,7 @@ if ($("odds")) {
       odds = "2";
 
     }
-
+    updateTipSelectionControls();
     render();
   };
 
@@ -1009,6 +1236,41 @@ if ($("newAcc")) {
     render();
   };
 
+}
+
+if ($("refreshApiTips")) {
+  $("refreshApiTips").onclick = loadApiTips;
+}
+
+if ($("addSelectedTips")) {
+  $("addSelectedTips").onclick = addSelectedApiTips;
+}
+
+if ($("clearSelectedTips")) {
+  $("clearSelectedTips").onclick = () => {
+    selectedApiTips.clear();
+    renderTipFeeds();
+  };
+}
+
+for (const groupContainerId of ["freeTipCategories", "vipTipCategories"]) {
+  const groupContainer = $(groupContainerId);
+
+  if (groupContainer) {
+    groupContainer.onchange = event => {
+      const checkbox = event.target.closest("input[data-api-tip]");
+      if (!checkbox) return;
+
+      if (checkbox.checked) {
+        selectedApiTips.add(checkbox.dataset.apiTip);
+      } else {
+        selectedApiTips.delete(checkbox.dataset.apiTip);
+      }
+
+      checkbox.closest(".api-tip").classList.toggle("is-selected", checkbox.checked);
+      updateTipSelectionControls();
+    };
+  }
 }
 
 // ============================================================
