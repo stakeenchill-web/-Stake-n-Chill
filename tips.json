@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-09 09:51:14",
+  "updatedAt": "2026-10-09 09:54:08",
   "days": [
     {
       "date": "2026-09-03",
@@ -865,10 +865,10 @@
         "title": "Tip of the Day",
         "description": "",
         "match": {
-          "match": "",
-          "pick": "",
-          "odds": 1,
-          "time": "",
+          "match": "Westham vs QPR",
+          "pick": "Over 3.5",
+          "odds": 2.38,
+          "time": "10:00",
           "status": "Pending"
         }
       },
