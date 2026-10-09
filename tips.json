@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-12 05:41:38",
+  "updatedAt": "2026-10-09 09:49:44",
   "days": [
     {
       "date": "2026-09-03",
@@ -856,6 +856,117 @@
           }
         ],
         "3": [],
+        "5": []
+      }
+    },
+    {
+      "date": "2026-10-09",
+      "featured": {
+        "title": "Tip of the Day",
+        "description": "",
+        "match": {
+          "match": "",
+          "pick": "",
+          "odds": 1,
+          "time": "",
+          "status": "Pending"
+        }
+      },
+      "odds": {
+        "2": [
+          {
+            "sport": "Football",
+            "league": "Various",
+            "result": "Pending",
+            "combinedOdds": 0,
+            "matches": []
+          },
+          {
+            "sport": "Football",
+            "league": "Morocco",
+            "result": "Pending",
+            "combinedOdds": 0,
+            "matches": []
+          },
+          {
+            "sport": "Football",
+            "league": "Various",
+            "result": "Pending",
+            "combinedOdds": 2.55,
+            "matches": [
+              {
+                "match": "Moghreb Tetouan vs FUS Rabat",
+                "pick": "Under 2.5",
+                "odds": 1.4,
+                "time": "23:00",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "under",
+                "apiTipId": "13032"
+              },
+              {
+                "match": "Al-Wahda vs Al Dhafra",
+                "pick": "1 DNB",
+                "odds": "1.30",
+                "time": "16:10",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "htft",
+                "apiTipId": "13036"
+              },
+              {
+                "match": "Bray vs Wexford",
+                "pick": "1",
+                "odds": "1.4",
+                "time": "21:45",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "htft",
+                "apiTipId": "13037"
+              }
+            ]
+          }
+        ],
+        "3": [
+          {
+            "sport": "Football",
+            "league": "Various",
+            "result": "Pending",
+            "combinedOdds": 3.4,
+            "matches": [
+              {
+                "match": "Heracles vs Waalwijk",
+                "pick": "Over 2.5",
+                "odds": 1.4,
+                "time": "21:00",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "over",
+                "apiTipId": "13031"
+              },
+              {
+                "match": "Heidenheim vs Kaiserslautern",
+                "pick": "Home win",
+                "odds": 1.87,
+                "time": "19:30",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "kickstart",
+                "apiTipId": "13040"
+              },
+              {
+                "match": "West Ham vs QPR",
+                "pick": "1",
+                "odds": "1.3",
+                "time": "22:00",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "quantum",
+                "apiTipId": "13023"
+              }
+            ]
+          }
+        ],
         "5": []
       }
     }
