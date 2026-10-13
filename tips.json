@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-11 23:13:56",
+  "updatedAt": "2026-10-13 13:06:39",
   "days": [
     {
       "date": "2026-09-03",
@@ -1034,6 +1034,54 @@
                 "apiSource": "Mchumwa",
                 "apiCategory": "sure",
                 "apiTipId": "13109"
+              }
+            ]
+          }
+        ],
+        "3": [],
+        "5": []
+      }
+    },
+    {
+      "date": "2026-10-13",
+      "featured": {
+        "title": "Tip of the Day",
+        "description": "",
+        "match": {
+          "match": "",
+          "pick": "",
+          "odds": 1,
+          "time": "",
+          "status": "Pending"
+        }
+      },
+      "odds": {
+        "2": [
+          {
+            "sport": "Football",
+            "league": "Various",
+            "result": "Pending",
+            "combinedOdds": 2.14,
+            "matches": [
+              {
+                "match": "Malavan vs Foolad",
+                "pick": "Under 2.5",
+                "odds": 1.37,
+                "time": "16:30",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "under",
+                "apiTipId": "13153"
+              },
+              {
+                "match": "Al-Ittihad vs Al-Ahli Dubai",
+                "pick": "1 DNB",
+                "odds": "1.56",
+                "time": "21:15",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "sure",
+                "apiTipId": "13158"
               }
             ]
           }
