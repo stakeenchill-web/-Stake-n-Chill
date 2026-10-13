@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13 13:18:45",
+  "updatedAt": "2026-10-13 13:21:10",
   "days": [
     {
       "date": "2026-09-03",
@@ -1136,7 +1136,66 @@
             ]
           }
         ],
-        "5": []
+        "5": [
+          {
+            "sport": "Football",
+            "league": "Various",
+            "result": "Pending",
+            "combinedOdds": 60.86,
+            "matches": [
+              {
+                "match": "Ebbsfleet vs AFC Totton",
+                "pick": "Over 2.5",
+                "odds": 1.5,
+                "time": "21:45",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "over",
+                "apiTipId": "13154"
+              },
+              {
+                "match": "Worthing vs Ipswich U21",
+                "pick": "gg Yes",
+                "odds": 1.4,
+                "time": "21:45",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "gg",
+                "apiTipId": "13155"
+              },
+              {
+                "match": "Rostock vs Meppen",
+                "pick": "Home win",
+                "odds": 2.3,
+                "time": "20:00",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "quantum",
+                "apiTipId": "13139"
+              },
+              {
+                "match": "Gor Mahia vs Muranga seal",
+                "pick": "Home win",
+                "odds": 2.25,
+                "time": "19:00",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "quantum",
+                "apiTipId": "13142"
+              },
+              {
+                "match": "Atl. Madrid vs Man Utd",
+                "pick": "Home win",
+                "odds": 5.6,
+                "time": "22:00",
+                "status": "Pending",
+                "apiSource": "Fasttrack",
+                "apiCategory": "htft",
+                "apiTipId": "6107"
+              }
+            ]
+          }
+        ]
       }
     }
   ]
