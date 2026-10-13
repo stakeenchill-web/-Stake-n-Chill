@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13 13:06:39",
+  "updatedAt": "2026-10-13 13:18:45",
   "days": [
     {
       "date": "2026-09-03",
@@ -1086,7 +1086,56 @@
             ]
           }
         ],
-        "3": [],
+        "3": [
+          {
+            "sport": "Football",
+            "league": "Various",
+            "result": "Pending",
+            "combinedOdds": 3.36,
+            "matches": [
+              {
+                "match": "RB Leipzig vs Psv",
+                "pick": "Home win  2up",
+                "odds": "1.51",
+                "time": "22:00",
+                "status": "Pending",
+                "apiSource": "Fasttrack",
+                "apiCategory": "free",
+                "apiTipId": "6104"
+              },
+              {
+                "match": "National Bank Egypt vs El Gaish",
+                "pick": "Home win 1:0",
+                "odds": "1.19",
+                "time": "17:00",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "daily",
+                "apiTipId": "13156"
+              },
+              {
+                "match": "Galatasaray vs Barcelona",
+                "pick": "Away win & over 2.5",
+                "odds": "1.44",
+                "time": "22:00",
+                "status": "Pending",
+                "apiSource": "Fasttrack",
+                "apiCategory": "daily",
+                "apiTipId": "6105"
+              },
+              {
+                "match": "Sabah vs Slavia Prague",
+                "pick": "Away win 0:1",
+                "odds": "1.30",
+                "time": "19:45",
+                "status": "Pending",
+                "apiSource": "Fasttrack",
+                "apiCategory": "daily",
+                "apiTipId": "6106"
+              }
+            ]
+          }
+        ],
         "5": []
       }
     }
