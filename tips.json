@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13 13:21:10",
+  "updatedAt": "2026-10-13 13:27:51",
   "days": [
     {
       "date": "2026-09-03",
@@ -1141,12 +1141,12 @@
             "sport": "Football",
             "league": "Various",
             "result": "Pending",
-            "combinedOdds": 60.86,
+            "combinedOdds": 5.5,
             "matches": [
               {
                 "match": "Ebbsfleet vs AFC Totton",
-                "pick": "Over 2.5",
-                "odds": 1.5,
+                "pick": "Home 1up",
+                "odds": "1.23",
                 "time": "21:45",
                 "status": "Pending",
                 "apiSource": "Mchumwa",
@@ -1166,7 +1166,7 @@
               {
                 "match": "Rostock vs Meppen",
                 "pick": "Home win",
-                "odds": 2.3,
+                "odds": "1.52",
                 "time": "20:00",
                 "status": "Pending",
                 "apiSource": "Mchumwa",
@@ -1176,7 +1176,7 @@
               {
                 "match": "Gor Mahia vs Muranga seal",
                 "pick": "Home win",
-                "odds": 2.25,
+                "odds": "1.47",
                 "time": "19:00",
                 "status": "Pending",
                 "apiSource": "Mchumwa",
@@ -1185,8 +1185,8 @@
               },
               {
                 "match": "Atl. Madrid vs Man Utd",
-                "pick": "Home win",
-                "odds": 5.6,
+                "pick": "Home 1up",
+                "odds": "1.43",
                 "time": "22:00",
                 "status": "Pending",
                 "apiSource": "Fasttrack",
