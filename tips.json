@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13 13:30:34",
+  "updatedAt": "2026-10-15 20:29:37",
   "days": [
     {
       "date": "2026-09-03",
@@ -1196,6 +1196,44 @@
             ]
           }
         ]
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "featured": {
+        "title": "Tip of the Day",
+        "description": "",
+        "match": {
+          "match": "",
+          "pick": "",
+          "odds": 1,
+          "time": "",
+          "status": "Pending"
+        }
+      },
+      "odds": {
+        "2": [
+          {
+            "sport": "Football",
+            "league": "Europa",
+            "result": "Pending",
+            "combinedOdds": 1.98,
+            "matches": [
+              {
+                "match": "Lech Poznan vs Leverkusen",
+                "pick": "Away win & Over 2.5",
+                "odds": 1.98,
+                "time": "19:45",
+                "status": "Pending",
+                "apiSource": "Fasttrack",
+                "apiCategory": "free",
+                "apiTipId": "6122"
+              }
+            ]
+          }
+        ],
+        "3": [],
+        "5": []
       }
     }
   ]
