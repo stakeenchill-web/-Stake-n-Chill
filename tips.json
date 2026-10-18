@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18 09:19:41",
+  "updatedAt": "2026-10-18 09:20:07",
   "days": [
     {
       "date": "2026-09-03",
@@ -1280,7 +1280,46 @@
             ]
           }
         ],
-        "3": [],
+        "3": [
+          {
+            "sport": "Football",
+            "league": "Various",
+            "result": "Pending",
+            "combinedOdds": 4.08,
+            "matches": [
+              {
+                "match": "Leeds vs Man United",
+                "pick": "gg Yes",
+                "odds": 1.6,
+                "time": "16:00",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "gg",
+                "apiTipId": "13277"
+              },
+              {
+                "match": "Cambuur vs Alkmaar",
+                "pick": "Over 2.5",
+                "odds": 1.37,
+                "time": "15:30",
+                "status": "Pending",
+                "apiSource": "Mchumwa",
+                "apiCategory": "over",
+                "apiTipId": "13296"
+              },
+              {
+                "match": "Kakamega Homeboyz vs Ulinzi Stars",
+                "pick": "Home win",
+                "odds": 1.86,
+                "time": "15:00",
+                "status": "Pending",
+                "apiSource": "Fasttrack",
+                "apiCategory": "free",
+                "apiTipId": "6152"
+              }
+            ]
+          }
+        ],
         "5": []
       }
     }
